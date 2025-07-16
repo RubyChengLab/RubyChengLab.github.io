@@ -2,7 +2,7 @@
 layout: default
 title: Falling Comet Lab
 ---
-<script type="module" src="https://rubychenglab.github.io/assets/js/viewCounter.js"></script>
+<script type="module" src="/assets/js/viewCounter.js"></script>
 # 🌠 Falling Comet Lab
 
 ## 📚 文章分類
