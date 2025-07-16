@@ -5,11 +5,6 @@ title: Falling Comet Lab
 
 # 🌠 Falling Comet Lab
 
-歡迎來到 **Falling Comet Lab** — 一個結合 `Arduino`、`電機電子` 與 `數學` 的學習實驗室！  
-這裡是你追求「動手做 × 概念理解」的最佳據點。
-
----
-
 ## 📚 文章分類
 
 <nav>
@@ -19,6 +14,14 @@ title: Falling Comet Lab
     <li><a href="{{ site.baseurl }}/categories/電子">電子</a></li>
   </ul>
 </nav>
+
+---
+
+## 👩‍💻 關於我
+
+歡迎來到 **Falling Comet Lab** — 一個結合 `Arduino`、`電機電子` 與 `數學` 的學習實驗室！  
+這裡是你追求「動手做 × 概念理解」的最佳據點。  
+📬 有任何問題或合作邀請，歡迎到 [關於我](/about/) 頁面與我聯絡 🙌
 
 ---
 
@@ -44,7 +47,3 @@ title: Falling Comet Lab
 - 📘 整理三電一工（電路、電子、電磁、工程數學）筆記  
 - 🔍 整合互動學習工具，讓數學和電子不再困難  
 - 🧁 偶爾還會分享甜點與創意人生（隕落蛋糕店 ♥）
-
----
-
-📬 有任何問題或合作邀請，歡迎到 [關於我](/about/) 頁面與我聯絡 🙌
