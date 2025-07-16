@@ -1,9 +1,16 @@
 // /assets/js/viewCounter.js
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  increment
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-// Firebase config（你自己的設定）
+// ✅ 貼在這裡！
 const firebaseConfig = {
   apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
   authDomain: "falling-comet-lab-blog.firebaseapp.com",
@@ -14,28 +21,22 @@ const firebaseConfig = {
   measurementId: "G-TRDSPMNYQK"
 };
 
-// 初始化 Firebase 與 Firestore
+// 初始化 Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// 取得目前頁面網址（路徑作為 Doc ID）
+// 使用目前頁面路徑作為 Doc ID
 const path = location.pathname;
-
-// Firestore 路徑：posts/{path}
 const docRef = doc(db, "posts", path);
 
-// 更新瀏覽次數
+// 更新與顯示瀏覽次數
 async function updateViewCount() {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    await updateDoc(docRef, {
-      views: increment(1)
-    });
+    await updateDoc(docRef, { views: increment(1) });
   } else {
-    await setDoc(docRef, {
-      views: 1
-    });
+    await setDoc(docRef, { views: 1 });
   }
 
   const updatedSnap = await getDoc(docRef);
