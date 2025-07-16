@@ -1,9 +1,29 @@
 ---
-​---
-layout: home
-title: Welcome to Falling Comet Lab
-​---
-
-🎉 這裡是 Falling Comet Lab！  
-我會在這裡分享 Arduino、數學、電子、電路、微積分等教學內容 🔧✨
+layout: default
+title: Falling Comet Lab
 ---
+
+# 🌠 Falling Comet Lab
+
+歡迎來到 **Falling Comet Lab** — 一個結合 `Arduino`、`電機電子` 與 `數學` 的學習實驗室！
+
+這裡是你追求「動手做 × 概念理解」的最佳據點。
+
+---
+
+## 🔧 最新文章
+
+📌 點上方「Posts」或下拉 RSS 即可查看全部內容。
+
+---
+
+## 🎯 我們在做什麼？
+
+- 💡 提供 Arduino 專案教學與創作靈感  
+- 📘 整理三電一工（電路、電子、電磁、工程數學）筆記  
+- 🔍 整合互動學習工具，讓數學和電子不再困難  
+- 🧁 偶爾還會分享甜點與創意人生（隕落蛋糕店 ♥）
+
+---
+
+📬 有任何問題或合作邀請，歡迎到 [關於我](/about/) 頁面與我聯絡 🙌
