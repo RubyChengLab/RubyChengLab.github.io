@@ -5,18 +5,33 @@ title: Falling Comet Lab
 
 # 🌠 Falling Comet Lab
 
-歡迎來到 **Falling Comet Lab** — 一個結合 `Arduino`、`電機電子` 與 `數學` 的學習實驗室！
-
+歡迎來到 **Falling Comet Lab** — 一個結合 `Arduino`、`電機電子` 與 `數學` 的學習實驗室！  
 這裡是你追求「動手做 × 概念理解」的最佳據點。
+
+---
+
+## 📚 文章分類
+
+<nav>
+  <ul style="list-style: none; padding: 0; display: flex; gap: 1em;">
+    <li><a href="{{ site.baseurl }}/categories/arduino">Arduino</a></li>
+    <li><a href="{{ site.baseurl }}/categories/數學">數學</a></li>
+    <li><a href="{{ site.baseurl }}/categories/電子">電子</a></li>
+  </ul>
+</nav>
 
 ---
 
 ## 🔧 最新文章
 
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.posts limit:5 %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> <small>({{ post.date | date: "%Y-%m-%d" }})</small>
+      <a href="{{ post.url }}">{{ post.title }}</a>  
+      <small>({{ post.date | date: "%Y-%m-%d" }})</small>
+      {% if post.categories.size > 0 %}
+        <em>— 分類: {{ post.categories | join: ', ' }}</em>
+      {% endif %}
     </li>
   {% endfor %}
 </ul>
