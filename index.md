@@ -51,4 +51,4 @@ title: Falling Comet Lab
 
 - 🧁 偶爾還會分享甜點與創意人生（隕落蛋糕店 ♥）
 
-  <p>👁️ 本頁瀏覽次數：<span id="view-counter">載入中...</span></p>
+  <p>👁️ 本頁瀏覽次數：<span id="view-counter"></span></p>
