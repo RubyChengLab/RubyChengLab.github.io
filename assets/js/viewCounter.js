@@ -29,6 +29,10 @@ const db = getFirestore(app);
 const path = location.pathname;
 const docRef = doc(db, "posts", path);
 
+
+console.log("🔥 viewCounter.js 執行中，path =", path);
+
+
 // 更新與顯示瀏覽次數
 async function updateViewCount() {
   const docSnap = await getDoc(docRef);
