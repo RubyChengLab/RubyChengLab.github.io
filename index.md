@@ -13,7 +13,13 @@ title: Falling Comet Lab
 
 ## 🔧 最新文章
 
-📌 點上方「Posts」或下拉 RSS 即可查看全部內容。
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> <small>({{ post.date | date: "%Y-%m-%d" }})</small>
+    </li>
+  {% endfor %}
+</ul>
 
 ---
 
