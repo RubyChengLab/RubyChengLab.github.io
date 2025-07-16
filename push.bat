@@ -1,5 +1,5 @@
 @echo off
-echo ?? 正在將網站推送到 GitHub...
+echo 正在將網站推送到 GitHub...
 
 cd /d "C:\Users\Ruby\myblog"
 
