@@ -12,9 +12,9 @@ void setup() {
 }
 
 void loop() {
-  tone(8, 440); // 發出 440Hz 聲音（A音）
-  delay(1000);
-  noTone(8);
-  delay(1000);
+  tone(8, 440);       // 發出 440Hz 聲音（A音）
+  delay(1000);        // 持續1秒
+  noTone(8);          // 停止聲音
+  delay(1000);        // 靜音1秒
 }
 ```
