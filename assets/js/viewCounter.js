@@ -5,8 +5,9 @@ import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https:/
 const firebaseConfig = {
   apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
   authDomain: "falling-comet-lab-blog.firebaseapp.com",
-  projectId: "falling-comet-lab-blog", // 這行不能漏！
-  storageBucket: "falling-comet-lab-blog.appspot.com",
+  databaseURL: "https://falling-comet-lab-blog-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "falling-comet-lab-blog",
+  storageBucket: "falling-comet-lab-blog.firebasestorage.app",
   messagingSenderId: "275403715950",
   appId: "1:275403715950:web:25383ec082d6ff3338bd7f",
   measurementId: "G-TRDSPMNYQK"
