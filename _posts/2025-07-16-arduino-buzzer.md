@@ -4,6 +4,8 @@ title: "[Arduino教學] 蜂鳴器播放聲音"
 date: 2025-07-16
 ---
 
+今天來試試讓蜂鳴器發出聲音！
+
 ```cpp
 void setup() {
   pinMode(8, OUTPUT);

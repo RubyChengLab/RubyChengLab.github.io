@@ -10,4 +10,3 @@ date: 2025-07-16
 
 ```latex
 \lim_{x \to 0^+} \frac{1}{x} = +\infty
-```
