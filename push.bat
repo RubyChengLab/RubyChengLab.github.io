@@ -1,10 +1,10 @@
 @echo off
-echo ğŸ”„ æ­£åœ¨å°‡ç¶²ç«™æ¨é€åˆ° GitHub...
+echo ?? ¥¿¦b±Nºô¯¸±À°e¨ì GitHub...
 
 cd /d "%~dp0"
 
 git add .
-git commit -m "ğŸ“¦ è‡ªå‹•æ›´æ–°ç¶²ç«™ %date% %time%"
+git commit -m "?? ¦Û°Ê§ó·sºô¯¸ %date% %time%"
 git push origin master
 
 pause
