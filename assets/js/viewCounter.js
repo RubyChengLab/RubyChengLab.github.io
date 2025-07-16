@@ -1,5 +1,5 @@
 // /assets/js/viewCounter.js
-console.log("🔥 viewCounter.js 執行中，path =", path);
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import {
   getFirestore,
@@ -31,7 +31,7 @@ const path = rawPath === "/" ? "index" : rawPath.replace(/\//g, "_");
 
 // 再用 path 建立 docRef
 const docRef = doc(db, "posts", path);
-
+console.log("🔥 viewCounter.js 執行中，path =", path);
 
 
 
