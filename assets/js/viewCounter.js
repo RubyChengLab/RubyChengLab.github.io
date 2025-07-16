@@ -26,7 +26,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // 使用目前頁面路徑作為 Doc ID
-const path = location.pathname;
+const rawPath = location.pathname;
+const path = rawPath === "/" ? "index" : rawPath.replace(/\//g, "_");
 const docRef = doc(db, "posts", path);
 
 
