@@ -25,9 +25,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// 使用目前頁面路徑作為 Doc ID
+// 取得路徑，且格式化成合法的 firestore doc id
 const rawPath = location.pathname;
 const path = rawPath === "/" ? "index" : rawPath.replace(/\//g, "_");
+
+// 再用 path 建立 docRef
 const docRef = doc(db, "posts", path);
 
 
