@@ -1,5 +1,5 @@
 // /assets/js/viewCounter.js
-
+console.log("🔥 viewCounter.js 執行中，path =", path);
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import {
   getFirestore,
@@ -30,21 +30,25 @@ const path = location.pathname;
 const docRef = doc(db, "posts", path);
 
 
-console.log("🔥 viewCounter.js 執行中，path =", path);
+
 
 
 // 更新與顯示瀏覽次數
 async function updateViewCount() {
+  console.log("嘗試讀取文件");
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
+    console.log("文件存在，增加瀏覽數");
     await updateDoc(docRef, { views: increment(1) });
   } else {
+    console.log("文件不存在，建立新文件");
     await setDoc(docRef, { views: 1 });
   }
 
   const updatedSnap = await getDoc(docRef);
   const views = updatedSnap.data().views;
+  console.log("更新後瀏覽數為:", views);
   document.getElementById("view-counter").innerText = `👁️ 本頁瀏覽次數：${views}`;
 }
 
