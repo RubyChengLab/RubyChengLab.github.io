@@ -1,6 +1,5 @@
-// viewCounter.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, query, collection, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
@@ -18,27 +17,37 @@ const db = getFirestore(app);
 
 const rawPath = location.pathname;
 const path = rawPath === "/" ? "index" : rawPath.replace(/\//g, "_");
-
-console.log("path =", path);
-
 const docRef = doc(db, "posts", path);
 
+function animateCount(start, end, duration, element) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const value = Math.floor(progress * (end - start) + start);
+    element.innerText = `👁️ 本頁瀏覽次數：${value}`;
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
 async function updateViewCount() {
-  console.log("嘗試讀取文件");
+  const viewEl = document.getElementById("view-counter");
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    console.log("文件存在，增加瀏覽數");
     await updateDoc(docRef, { views: increment(1) });
   } else {
-    console.log("文件不存在，建立新文件");
     await setDoc(docRef, { views: 1 });
   }
 
   const updatedSnap = await getDoc(docRef);
-  const views = updatedSnap.data().views;
-  console.log("更新後瀏覽數為:", views);
-  document.getElementById("view-counter").innerText = `👁️ 本頁瀏覽次數：${views}`;
+  const views = updatedSnap.data().views || 0;
+
+  // 動畫：從0到最新數字
+  animateCount(0, views, 1500, viewEl);
 }
 
 updateViewCount();
