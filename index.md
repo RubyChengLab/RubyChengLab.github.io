@@ -4,7 +4,110 @@ title: Falling Comet Lab
 ---
 <script type="module" src="/assets/js/viewCounter.js"></script>
 # 🌠 Falling Comet Lab
+<section>
+  <h2>🔎 搜尋文章</h2>
+  <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章">
+  <ul id="search-results"></ul>
+</section>
 
+<section>
+  <h2>🏷️ 標籤雲</h2>
+  <div id="tag-cloud">
+    {% assign tags = site.tags %}
+    {% for tag in tags %}
+      <a href="{{ site.baseurl }}/tags/{{ tag[0] }}" style="font-size: {{ 100 | plus: tag[1].size | divided_by: 2 }}%;">{{ tag[0] }}</a> 
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  const posts = [
+    {% for post in site.posts %}
+    {
+      title: "{{ post.title | escape }}",
+      url: "{{ post.url }}",
+      content: "{{ post.content | strip_html | strip_newlines | escape }}"
+    },
+    {% endfor %}
+  ];
+
+  const searchInput = document.getElementById("search-input");
+  const searchResults = document.getElementById("search-results");
+
+  searchInput.addEventListener("input", () => {
+    const q = searchInput.value.toLowerCase();
+    searchResults.innerHTML = "";
+    if (q.length < 2) return;
+
+    const filtered = posts.filter(p => p.title.toLowerCase().includes(q) || p.content.toLowerCase().includes(q));
+    if (filtered.length === 0) {
+      searchResults.innerHTML = "<li>找不到符合的文章</li>";
+      return;
+    }
+
+    filtered.forEach(p => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = p.url;
+      a.textContent = p.title;
+      li.appendChild(a);
+      searchResults.appendChild(li);
+    });
+  });
+</script>
+<section>
+  <h2>🔥 熱門文章排行</h2>
+  <ul id="popular-posts">
+    <li>載入中...</li>
+  </ul>
+</section>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
+    authDomain: "falling-comet-lab-blog.firebaseapp.com",
+    projectId: "falling-comet-lab-blog",
+    storageBucket: "falling-comet-lab-blog.appspot.com",
+    messagingSenderId: "275403715950",
+    appId: "1:275403715950:web:25383ec082d6ff3338bd7f",
+    measurementId: "G-TRDSPMNYQK"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function loadPopularPosts() {
+    const popularPostsEl = document.getElementById("popular-posts");
+    const q = query(collection(db, "posts"), orderBy("views", "desc"), limit(5));
+    const querySnapshot = await getDocs(q);
+
+    popularPostsEl.innerHTML = "";
+
+    querySnapshot.forEach(doc => {
+      const data = doc.data();
+      const id = doc.id.replace(/_/g, "/"); // 反轉path格式成URL path
+
+      // 預設 post title 使用 doc id，你可以改成存標題欄位
+      const title = data.title || id;
+
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = id === "index" ? "/" : id;
+      a.textContent = `${title}（瀏覽: ${data.views || 0}）`;
+      li.appendChild(a);
+      popularPostsEl.appendChild(li);
+    });
+
+    if (querySnapshot.empty) {
+      popularPostsEl.innerHTML = "<li>還沒有熱門文章喔！</li>";
+    }
+  }
+
+  loadPopularPosts();
+</script>
 ## 📚 文章分類
 
 <nav>
