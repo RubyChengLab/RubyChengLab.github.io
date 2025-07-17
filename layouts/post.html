@@ -1,0 +1,17 @@
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  <p><small>{{ page.date | date: "%Y-%m-%d" }}</small></p>
+
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <!-- 👇 放這裡 -->
+  {% if page.tags %}
+    <p>🏷️ Tags: 
+      {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% if forloop.last == false %}, {% endif %}
+      {% endfor %}
+    </p>
+  {% endif %}
+</article>
