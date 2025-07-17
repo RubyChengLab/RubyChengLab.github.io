@@ -153,7 +153,8 @@ title: Falling Comet Lab
 - 🔍 整合互動學習工具，讓數學和電子不再困難  
 
 - 🧁 偶爾還會分享甜點與創意人生（隕落蛋糕店 ♥）
-
-  <p><span id="view-counter">👁️ 本頁瀏覽次數：</span></p>
+---
   ## 《微積分 + 三電一工》教學平台
   <iframe src="https://go-big-or-go-home.streamlit.app/" width="100%" height="800" frameborder="0" allowfullscreen></iframe>
+
+  <p><span id="view-counter">👁️ 本頁瀏覽次數：</span></p>
