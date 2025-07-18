@@ -65,22 +65,30 @@ title: Falling Comet Lab
     </div>
 
     <!-- 文章分類區 -->
-    <nav style="flex-shrink: 0;">
-      <ul style="
-        list-style: none; 
-        padding: 0; 
-        margin: 0; 
-        display: flex; 
-        gap: 1.2rem; 
-        font-weight: 600;
-        align-items: center; /* 這句讓所有項目垂直置中 */
-      ">
-        <li><a href="{{ site.baseurl }}/categories/Arduino/" style="text-decoration: none; color: #4a90e2;">Arduino</a></li>
-        <li><a href="{{ site.baseurl }}/categories/Math/" style="text-decoration: none; color: #4a90e2;">Math</a></li>
-        <li><a href="{{ site.baseurl }}/categories/Electronics/" style="text-decoration: none; color: #4a90e2;">Electronics</a></li>
-        <li><a href="/about/" style="text-decoration: none; color: #4a90e2;">關於我</a></li>
-      </ul>
-    </nav>
+    <nav>
+    <ul style="
+      list-style: none; 
+      padding: 0; 
+      margin: 0; 
+      display: flex; 
+      gap: 1em; 
+      align-items: center; 
+      font-size: 16px; /* 字體大小統一 */
+    ">
+      <li style="margin: 0; padding: 0;">
+        <a href="{{ site.baseurl }}/categories/Arduino/" style="line-height: 1.5; text-decoration: none;">Arduino</a>
+      </li>
+      <li style="margin: 0; padding: 0;">
+        <a href="{{ site.baseurl }}/categories/Math/" style="line-height: 1.5; text-decoration: none;">Math</a>
+      </li>
+      <li style="margin: 0; padding: 0;">
+        <a href="{{ site.baseurl }}/categories/Electronics/" style="line-height: 1.5; text-decoration: none;">Electronics</a>
+      </li>
+      <li style="margin: 0; padding: 0;">
+        <a href="/about/" style="line-height: 1.5; text-decoration: none;">關於我</a>
+      </li>
+    </ul>
+  </nav>
 
   </div>
 
