@@ -7,14 +7,7 @@ permalink: /categories/Arduino/
 <h1>分類：Arduino</h1>
 
 <ul>
-  {% assign current_category = page.category | downcase %}
-  {% for post in site.posts %}
-    <li>{{ post.title }} - Categories: {{ post.categories | join: ", " }}</li>
-    {% for cat in post.categories %}
-      {% if cat | downcase == current_category %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% break %}
-      {% endif %}
-    {% endfor %}
+  {% for post in site.categories.Arduino %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
