@@ -73,6 +73,7 @@ title: Falling Comet Lab
         display: flex; 
         gap: 1.2rem; 
         font-weight: 600;
+        align-items: center; /* 這句讓所有項目垂直置中 */
       ">
         <li><a href="{{ site.baseurl }}/categories/Arduino/" style="text-decoration: none; color: #4a90e2;">Arduino</a></li>
         <li><a href="{{ site.baseurl }}/categories/Math/" style="text-decoration: none; color: #4a90e2;">Math</a></li>
@@ -234,7 +235,6 @@ title: Falling Comet Lab
   loadPopularPosts();
 </script>
 
----
 
 <h2 style="font-weight: 700; font-size: 1.4rem; margin-bottom: 0.8rem;"> 🔧 最新文章</h2>
 
@@ -256,7 +256,6 @@ title: Falling Comet Lab
   {% endfor %}
 </ul>
 
----
 
 <h2 style="font-weight: 700; font-size: 1.4rem; margin-bottom: 0.8rem;"> 🎯 我們在做什麼？</h2>
 
