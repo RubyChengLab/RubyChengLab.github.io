@@ -120,8 +120,8 @@ title: Falling Comet Lab
 <nav>
   <ul style="list-style: none; padding: 0; display: flex; gap: 1em;">
     <li><a href="{{ site.baseurl }}/categories/Arduino/">Arduino</a></li>
-    <li><a href="{{ site.baseurl }}/categories/數學/">數學</a></li>
-    <li><a href="{{ site.baseurl }}/categories/電子/">電子</a></li>
+    <li><a href="{{ site.baseurl }}/categories/Math/">Math</a></li>
+    <li><a href="{{ site.baseurl }}/categories/Electronics/">Electronics</a></li>
   </ul>
 </nav>
 

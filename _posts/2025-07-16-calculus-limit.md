@@ -2,8 +2,8 @@
 layout: post
 title: "[微積分入門] 什麼是極限？"
 date: 2025-07-16
-tags: [數學, 微積分]
-categories: [數學]
+tags: [Calculus, Math, Limits]
+categories: [Math]
 ---
 
 極限的觀念是微積分的根本。

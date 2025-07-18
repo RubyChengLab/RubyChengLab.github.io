@@ -1,14 +1,14 @@
 ---
 layout: tag
-tag: 電路
-permalink: /tags/電路/
+tag: Limits
+permalink: /tags/Limits/
 ---
 
-<h1>#電路</h1>
+<h1>#Limits</h1>
 
 <ul>
   {% for post in site.posts %}
-    {% if post.tags contains "電路" %}
+    {% if post.tags contains "Limits" %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endif %}
   {% endfor %}

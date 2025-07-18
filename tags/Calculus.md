@@ -1,14 +1,14 @@
 ---
 layout: tag
-tag: 電子
-permalink: /tags/電子/
+tag: Calculus
+permalink: /tags/Calculus/
 ---
 
-<h1>#電子</h1>
+<h1>#Calculus</h1>
 
 <ul>
   {% for post in site.posts %}
-    {% if post.tags contains "電子" %}
+    {% if post.tags contains "Calculus" %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endif %}
   {% endfor %}

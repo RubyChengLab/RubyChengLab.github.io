@@ -2,8 +2,8 @@
 layout: post
 title: "電阻串聯與並聯的基本概念"
 date: 2025-07-16
-tags: [電子, 電路]
-categories: [電子]
+tags: [Electronics, Circuits]
+categories: [Electronics]
 ---
 
 ## 電阻連接方式介紹

@@ -1,14 +1,14 @@
 ---
 layout: tag
-tag: 微積分
-permalink: /tags/微積分/
+tag: Math
+permalink: /tags/Math/
 ---
 
-<h1>#微積分</h1>
+<h1>#Math</h1>
 
 <ul>
   {% for post in site.posts %}
-    {% if post.tags contains "微積分" %}
+    {% if post.tags contains "Math" %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endif %}
   {% endfor %}
