@@ -3,12 +3,10 @@ layout: tag
 tag: Arduino
 permalink: /tags/Arduino/
 ---
-<h1>#Arduino</h1>
+<h1>#{{ page.tag }}</h1>
 
 <ul>
-  {% for post in site.posts %}
-    {% if post.tags contains "Arduino" %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endif %}
+  {% for post in site.tags[page.tag] %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>

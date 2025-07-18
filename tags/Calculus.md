@@ -4,12 +4,10 @@ tag: Calculus
 permalink: /tags/Calculus/
 ---
 
-<h1>#Calculus</h1>
+<h1>#{{ page.tag }}</h1>
 
 <ul>
-  {% for post in site.posts %}
-    {% if post.tags contains "Calculus" %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endif %}
+  {% for post in site.tags[page.tag] %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>

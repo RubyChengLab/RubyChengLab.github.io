@@ -4,12 +4,10 @@ tag: Electronics
 permalink: /tags/Electronics/
 ---
 
-<h1>#Electronics</h1>
+<h1>#{{ page.tag }}</h1>
 
 <ul>
-  {% for post in site.posts %}
-    {% if post.tags contains "Electronics" %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endif %}
+  {% for post in site.tags[page.tag] %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
