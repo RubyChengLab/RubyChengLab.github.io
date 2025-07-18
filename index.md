@@ -155,6 +155,9 @@ title: Falling Comet Lab
 - 🧁 偶爾還會分享甜點與創意人生（隕落蛋糕店 ♥）
 ---
   ## 《微積分 + 三電一工》教學平台
-  <iframe src="https://go-big-or-go-home.streamlit.app/" width="100%" height="800" frameborder="0" allowfullscreen></iframe>
+<p>點擊下面連結，在新視窗打開教學平台：</p>
+<a href="https://go-big-or-go-home.streamlit.app/" target="_blank" rel="noopener noreferrer">
+  前往《微積分 + 三電一工》教學平台
+</a>
 
   <p><span id="view-counter">👁️ 本頁瀏覽次數：</span></p>
