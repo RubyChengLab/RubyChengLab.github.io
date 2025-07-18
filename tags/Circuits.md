@@ -1,7 +1,7 @@
 ---
 layout: tag
-tag: Circuit
-permalink: /tags/Circuit/
+tag: Circuits
+permalink: /tags/Circuits/
 ---
 
 <h1>#{{ page.tag }}</h1>
