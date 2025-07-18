@@ -11,13 +11,20 @@ title: Falling Comet Lab
 </section>
 
 <section>
-  <h2>🏷️ 標籤雲</h2>
-  <div id="tag-cloud">
-    {% assign tags = site.tags %}
-    {% for tag in tags %}
-      <a href="{{ site.baseurl }}/tags/{{ tag[0] }}" style="font-size: {{ 100 | plus: tag[1].size | divided_by: 2 }}%;">{{ tag[0] }}</a> 
-    {% endfor %}
-  </div>
+{% assign max_size = 0 %}
+{% for tag in site.tags %}
+  {% if tag[1].size > max_size %}
+    {% assign max_size = tag[1].size %}
+  {% endif %}
+{% endfor %}
+
+<div id="tag-cloud">
+  {% for tag in site.tags %}
+    {% assign size = tag[1].size | times: 1.0 %}
+    {% assign font_size = size | divided_by: max_size | times: 120 | plus: 80 %}
+    <a href="{{ site.baseurl }}/tags/{{ tag[0] }}" style="font-size: {{ font_size | round }}%;">{{ tag[0] }}</a>
+  {% endfor %}
+</div>
 </section>
 
 <script>
