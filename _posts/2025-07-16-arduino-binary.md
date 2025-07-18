@@ -3,6 +3,7 @@ layout: post
 title: "[Arduino入門] 用LED學會數學：認識二進位"
 date: 2025-07-16
 tags: [Arduino, 數學]
+categories: [Arduino]
 ---
 
 ## 📘《【Arduino入門】用LED學會數學：認識二進位》
