@@ -1,6 +1,7 @@
 title: Falling Comet Lab
 description: Arduino x 數學教學
 baseurl: ""
+permalink: /:categories/:title/
 url: "https://RubyChengLab.github.io"
 twitter_username: yourTwitter
 github_username: RubyChengLab
