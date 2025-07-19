@@ -1,6 +1,44 @@
-<header class="site-header">
-  <h1 class="site-title">🌠 Falling Comet Lab</h1>
-  </div>
+<header style="
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  z-index: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+  <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
+    🌠 Falling Comet Lab
+  </h1>
+  <div style="display: flex; gap: 2rem; align-items: flex-start; font-size: 0.95rem; color: #444;">
+    <div style="display: flex; flex-direction: column; min-width: 280px;">
+      <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 6px;">
+        <h2 style="margin: 0; font-size: 1rem;">🔎 搜尋文章</h2>
+        <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章" style="
+          flex: 1;
+          padding: 0.5em 0.7em;
+          font-size: 0.95rem;
+          border: 1.5px solid #ccc;
+          border-radius: 6px;
+          transition: border-color 0.3s;
+        " onfocus="this.style.borderColor='#4a90e2'" onblur="this.style.borderColor='#ccc'">
+      </div>
+      <ul id="search-results" style="
+        max-height: 180px;
+        overflow-y: auto;
+        margin: 0;
+        padding-left: 1.2em;
+        background: #fefefe;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        font-size: 0.9rem;
+      "></ul>
+    </div>
 
     <nav>
       <ul style="list-style: none; display: flex; gap: 1em; margin: 0; padding: 0;">
@@ -10,4 +48,5 @@
         <li><a href="/about/">關於我</a></li>
       </ul>
     </nav>
+  </div>
 </header>
