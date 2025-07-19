@@ -1,0 +1,17 @@
+{% assign max_size = 0 %}
+{% for tag in site.tags %}
+  {% if tag[1].size > max_size %}
+    {% assign max_size = tag[1].size %}
+  {% endif %}
+{% endfor %}
+
+<div class="tag-cloud">
+  {% for tag in site.tags %}
+    {% assign size = tag[1].size %}
+    {% assign font_size = size | divided_by: max_size | times: 120 | plus: 80 %}
+    <a href="{{ site.baseurl }}/tags/{{ tag[0] }}"
+       style="font-size: {{ font_size | round }}%">
+       {{ tag[0] }}
+    </a>
+  {% endfor %}
+</div>

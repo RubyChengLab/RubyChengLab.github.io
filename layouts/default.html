@@ -1,127 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | {{ site.title }}</title>
-    <script type="module" src="/assets/js/viewCounter.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJMFNEQ4T2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-QJMFNEQ4T2');
-    </script>
-    <style>
-      nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: 1.5em;
-        background-color: #0a192f;
-        border-radius: 6px;
-        padding: 0.5em 1em;
-        justify-content: center;
-      }
-
-      /* 導覽列連結 */
-      nav ul li a {
-        color: #ccd6f6;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1rem;
-        padding: 0.3em 0.6em;
-        border-radius: 4px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      /* 滑鼠懸停、聚焦時 */
-      nav ul li a:hover,
-      nav ul li a:focus {
-        background-color: #64ffda;
-        color: #0a192f;
-        outline: none;
-      }
-
-      /* 響應式：手機螢幕導覽列改成直列 */
-      @media (max-width: 600px) {
-        nav ul {
-          flex-direction: column;
-          gap: 0.8em;
-        }
-      }
-      body {
-        font-family: "Helvetica", sans-serif;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-        background-color: #f5f5f5;
-        color: #333;
-      }
-      header {
-        background: linear-gradient(to right, #4b6cb7, #182848);
-        color: white;
-        padding: 1rem;
-        text-align: center;
-      }
-      nav {
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        padding: 0.5rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      }
-      nav a {
-        color: #4b6cb7;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      nav a:hover {
-        text-decoration: underline;
-      }
-      main {
-        max-width: 800px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-        background: white;
-        box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        border-radius: 8px;
-      }
-      footer {
-        text-align: center;
-        font-size: 0.9rem;
-        padding: 1rem;
-        color: #aaa;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>{{ site.title }}</h1>
-      <p>{{ site.description }}</p>
-    </header>
-
-    <nav>
-      <a href="/">首頁</a>
-      <a href="/about/">關於</a>
-      <a href="/feed.xml">RSS</a>
-    </nav>
-
-    <main>
-      {{ content }}
-    </main>
-
-    <footer>
-      &copy; {{ "now" | date: "%Y" }} Falling Comet Lab | <a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a>
-    </footer>
-    <!-- 顯示瀏覽次數 -->
-    <div id="view-counter" style="margin-top: 2em; font-weight: bold;"></div>
-
-    <!-- 引入瀏覽次數統計 JS -->
-    <script type="module" src="/assets/js/viewCounter.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body>
+  {{ content }}
+  {% include footer.html %}
+</body>
 </html>
