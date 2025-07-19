@@ -13,7 +13,7 @@ title: Falling Comet Lab
 
   /* 可以讓內容有一層半透明底，避免文字不清楚 */
   div[style*="padding: 140px"] {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 12px;
     padding: 40px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
