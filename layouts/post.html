@@ -18,10 +18,11 @@
   </div>
 </article>
 
-<!-- ✅ Firebase CDN version -->
+<!-- Firebase CDN version -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <script>
+  // Firebase 配置
   const firebaseConfig = {
     apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
     authDomain: "falling-comet-lab-blog.firebaseapp.com",
@@ -31,25 +32,33 @@
     appId: "1:275403715950:web:25383ec082d6ff3338bd7f"
   };
 
-  firebase.initializeApp(firebaseConfig);
+  // 避免重複初始化
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
   const db = firebase.firestore();
 
+  // 取得目前頁面路徑當作文件ID
   const pagePath = location.pathname.replace(/^\/|\/$/g, "") || "index";
   const ref = db.collection("posts").doc(pagePath);
 
-  ref.get().then((docSnap) => {
-    if (docSnap.exists) {
-      ref.update({ views: firebase.firestore.FieldValue.increment(1) });
-    } else {
-      ref.set({ views: 1 });
-    }
-
-    return ref.get();
-  }).then((updated) => {
-    const count = updated.data().views || 1;
-    document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：${count}`;
-  }).catch((e) => {
-    document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：錯誤`;
-    console.error("View count error:", e);
-  });
+  // 更新瀏覽次數的函式
+  ref.get()
+    .then(docSnap => {
+      if (docSnap.exists) {
+        return ref.update({ views: firebase.firestore.FieldValue.increment(1) });
+      } else {
+        return ref.set({ views: 1 });
+      }
+    })
+    .then(() => ref.get())
+    .then(updated => {
+      const count = updated.data().views || 1;
+      document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：${count}`;
+    })
+    .catch(error => {
+      document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：錯誤`;
+      console.error("View count error:", error);
+    });
 </script>
