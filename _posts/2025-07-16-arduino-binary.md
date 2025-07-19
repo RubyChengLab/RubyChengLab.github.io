@@ -6,7 +6,7 @@ bg: /images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
 tags: [Arduino, Math]
 categories: [Arduino, Math]
 ---
-{% include post-style.html %}
+
 ## 📘《【Arduino入門】用LED學會數學：認識二進位》
 
 ### 👋 歡迎來到 Falling Comet Lab！
