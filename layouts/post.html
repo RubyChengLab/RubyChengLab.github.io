@@ -1,13 +1,13 @@
 <style>
   body {
-    background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg'); /* 這裡換成你的圖片路徑 */
+    background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg'); /* 背景圖片路徑 */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
 
-  /* 可以讓內容有一層半透明底，避免文字不清楚 */
+  /* 讓內容區有半透明底，文字更清楚 */
   div[style*="padding: 140px"] {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 12px;
@@ -30,13 +30,14 @@
       </p>
     {% endif %}
 
+    <!-- 瀏覽次數顯示區 -->
     <p id="view-count" style="color: #555; font-size: 0.95rem; margin-top: 1.5rem;">
       👁️ 本文瀏覽次數：載入中...
     </p>
   </div>
 </article>
 
-<!-- Firebase CDN version -->
+<!-- Firebase CDN 兼容版本 -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <script>
@@ -50,23 +51,25 @@
     appId: "1:275403715950:web:25383ec082d6ff3338bd7f"
   };
 
-  // 避免重複初始化
+  // 避免重複初始化 Firebase
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
 
   const db = firebase.firestore();
 
-  // 取得目前頁面路徑當作文件ID
+  // 取得目前頁面路徑當作文件 ID (例: 'index' 或 'test.html')
   const pagePath = location.pathname.replace(/^\/|\/$/g, "") || "index";
   const ref = db.collection("posts").doc(pagePath);
 
-  // 更新瀏覽次數的函式
+  // 更新並取得瀏覽次數
   ref.get()
     .then(docSnap => {
       if (docSnap.exists) {
+        // 文件存在，瀏覽數 +1
         return ref.update({ views: firebase.firestore.FieldValue.increment(1) });
       } else {
+        // 文件不存在，建立文件並設置 views = 1
         return ref.set({ views: 1 });
       }
     })
