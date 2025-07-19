@@ -1,39 +1,73 @@
 <style>
   body {
-    background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg'); /* 背景圖片路徑 */
+    background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    margin: 0; /* 避免 body 預設 margin 影響視覺 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   }
 
-  /* 讓內容區有半透明底，文字更清楚 */
-  div[style*="padding: 140px"] {
+  /* 半透明內容區 */
+  .content-wrapper {
+    max-width: 800px;
+    margin: 3rem auto;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 12px;
-    padding: 40px;
+    padding: 40px 30px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  /* 文章標題 */
+  .post-title {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  /* 日期樣式 */
+  .post-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+  }
+
+  /* 標籤連結 */
+  .post-tags a {
+    color: #1a73e8;
+    text-decoration: none;
+    margin-right: 0.6rem;
+  }
+
+  .post-tags a:hover {
+    text-decoration: underline;
+  }
+
+  /* 瀏覽次數文字 */
+  #view-count {
+    color: #555;
+    font-size: 0.95rem;
+    margin-top: 2rem;
   }
 </style>
 
 <article class="post">
-  <div>
-    <h1>{{ page.title }}</h1>
-    <p><small>{{ page.date | date: "%Y-%m-%d" }}</small></p>
+  <div class="content-wrapper">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-date">{{ page.date | date: "%Y-%m-%d" }}</p>
     {{ content }}
 
     {% if page.tags %}
-      <p>🏷️ Tags: 
+      <p class="post-tags">🏷️ Tags: 
         {% for tag in page.tags %}
           <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
       </p>
     {% endif %}
 
-    <!-- 瀏覽次數顯示區 -->
-    <p id="view-count" style="color: #555; font-size: 0.95rem; margin-top: 1.5rem;">
-      👁️ 本文瀏覽次數：載入中...
-    </p>
+    <p id="view-count">👁️ 本文瀏覽次數：載入中...</p>
   </div>
 </article>
 
@@ -41,7 +75,7 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <script>
-  // Firebase 配置
+  // Firebase 配置，請勿隨意洩漏給不信任的人
   const firebaseConfig = {
     apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
     authDomain: "falling-comet-lab-blog.firebaseapp.com",
@@ -54,32 +88,38 @@
   // 避免重複初始化 Firebase
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
+    console.log("Firebase 初始化成功");
+  } else {
+    console.log("Firebase 已初始化");
   }
 
   const db = firebase.firestore();
 
-  // 取得目前頁面路徑當作文件 ID (例: 'index' 或 'test.html')
+  // 使用當前頁面路徑作為 Firestore 文件 ID
   const pagePath = location.pathname.replace(/^\/|\/$/g, "") || "index";
+  console.log("使用的文件 ID (pagePath):", pagePath);
+
   const ref = db.collection("posts").doc(pagePath);
 
-  // 更新並取得瀏覽次數
+  // 更新瀏覽次數並取得最新數值
   ref.get()
     .then(docSnap => {
       if (docSnap.exists) {
-        // 文件存在，瀏覽數 +1
+        console.log("文件存在，瀏覽次數為:", docSnap.data().views);
         return ref.update({ views: firebase.firestore.FieldValue.increment(1) });
       } else {
-        // 文件不存在，建立文件並設置 views = 1
+        console.log("文件不存在，建立新文件，初始瀏覽數 1");
         return ref.set({ views: 1 });
       }
     })
     .then(() => ref.get())
-    .then(updated => {
-      const count = updated.data().views || 1;
+    .then(updatedDoc => {
+      const count = updatedDoc.data().views || 1;
+      console.log("更新後的瀏覽次數:", count);
       document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：${count}`;
     })
     .catch(error => {
-      document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：錯誤`;
-      console.error("View count error:", error);
+      console.error("讀寫 Firestore 發生錯誤:", error);
+      document.getElementById("view-count").innerText = "👁️ 本文瀏覽次數：錯誤";
     });
 </script>
