@@ -2,62 +2,19 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title }} | {{ site.title }}</title>
+  <title>背景測試</title>
   <style>
-      body {
-      background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg'); /* 這裡換成你的圖片路徑 */
+    body {
+      background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg');
       background-size: cover;
       background-position: center center;
-      background-attachment: fixed;
       background-repeat: no-repeat;
-    }
-
-    /* 可以讓內容有一層半透明底，避免文字不清楚 */
-    div[style*="padding: 140px"] {
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-    h1 {
-      font-weight: 700;
-      font-size: 2.2rem;
-      margin-bottom: 0.2rem;
-    }
-    p.date {
-      color: #666;
-      font-size: 0.9rem;
-      margin-top: 0;
-      margin-bottom: 2rem;
-    }
-    .tags a {
-      color: #1a73e8;
-      text-decoration: none;
-      margin-right: 0.5rem;
-    }
-    .tags a:hover {
-      text-decoration: underline;
+      height: 100vh;
+      margin: 0;
     }
   </style>
 </head>
 <body>
-  <article>
-    <h1>{{ page.title }}</h1>
-    <p class="date">{{ page.date | date: "%Y-%m-%d" }}</p>
-
-    <div class="content">
-      {{ content }}
-    </div>
-
-    {% if page.tags %}
-      <p class="tags">
-        🏷️ Tags:
-        {% for tag in page.tags %}
-          <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      </p>
-    {% endif %}
-  </article>
+  <h1 style="color: white; text-align: center; padding-top: 40vh;">背景測試成功！</h1>
 </body>
 </html>
