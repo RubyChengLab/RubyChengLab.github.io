@@ -6,7 +6,7 @@ bg: /images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
 tags: [Electronics, Circuits]
 categories: [Electronics]
 ---
-
+<body style="background-color: yellow;">
 ## 電阻連接方式介紹
 
 ### 🔋 串聯（Series）
