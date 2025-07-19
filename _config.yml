@@ -5,3 +5,11 @@ permalink: /:categories/:title/
 url: "https://RubyChengLab.github.io"
 twitter_username: yourTwitter
 github_username: RubyChengLab
+
+theme: minima
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
