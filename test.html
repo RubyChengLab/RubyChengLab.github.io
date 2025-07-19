@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>測試頁面</title>
+  <style>
+    body {
+      background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    .content-wrapper {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 3rem auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body>
+  <article class="post">
+    <div class="content-wrapper">
+      <h1>這是測試標題</h1>
+      <p><small>2025-07-19</small></p>
+      <p>這是測試內容，這裡會顯示文章正文。</p>
+      <p id="view-count" style="color: #555; font-size: 0.95rem; margin-top: 1.5rem;">
+        👁️ 本文瀏覽次數：載入中...
+      </p>
+    </div>
+  </article>
+
+  <!-- Firebase CDN version -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script>
+    // Firebase 配置
+    const firebaseConfig = {
+      apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
+      authDomain: "falling-comet-lab-blog.firebaseapp.com",
+      projectId: "falling-comet-lab-blog",
+      storageBucket: "falling-comet-lab-blog.appspot.com",
+      messagingSenderId: "275403715950",
+      appId: "1:275403715950:web:25383ec082d6ff3338bd7f"
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const db = firebase.firestore();
+
+    const pagePath = location.pathname.replace(/^\/|\/$/g, "") || "index";
+    const ref = db.collection("posts").doc(pagePath);
+
+    ref.get()
+      .then(docSnap => {
+        if (docSnap.exists) {
+          return ref.update({ views: firebase.firestore.FieldValue.increment(1) });
+        } else {
+          return ref.set({ views: 1 });
+        }
+      })
+      .then(() => ref.get())
+      .then(updated => {
+        const count = updated.data().views || 1;
+        document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：${count}`;
+      })
+      .catch(error => {
+        document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：錯誤`;
+        console.error("View count error:", error);
+      });
+  </script>
+</body>
+</html>
