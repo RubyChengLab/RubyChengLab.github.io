@@ -1,124 +1,125 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title }} | {{ site.title }}</title>
+<style>
+  body {
+    background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0; /* 避免 body 預設 margin 影響視覺 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  }
 
-  <style>
-    body {
-      background-image: url('{{ page.bg | default: "/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg" }}');
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
+  /* 半透明內容區 */
+  .content-wrapper {
+    max-width: 800px;
+    margin: 3rem auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
 
-    .content-wrapper {
-      max-width: 800px;
-      margin: 3rem auto;
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 12px;
-      padding: 40px 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
+  /* 文章標題 */
+  .post-title {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
 
-    .post-title {
-      margin-top: 0;
-      font-weight: 700;
-      font-size: 2.5rem;
-      line-height: 1.2;
-    }
+  /* 日期樣式 */
+  .post-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+  }
 
-    .post-date {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 1.8rem;
-    }
+  /* 標籤連結 */
+  .post-tags a {
+    color: #1a73e8;
+    text-decoration: none;
+    margin-right: 0.6rem;
+  }
 
-    .post-tags a {
-      color: #1a73e8;
-      text-decoration: none;
-      margin-right: 0.6rem;
-    }
+  .post-tags a:hover {
+    text-decoration: underline;
+  }
 
-    .post-tags a:hover {
-      text-decoration: underline;
-    }
+  /* 瀏覽次數文字 */
+  #view-count {
+    color: #555;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+  }
+</style>
 
-    #view-count {
-      color: #555;
-      font-size: 0.95rem;
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-<body>
+<article class="post">
+  <div class="content-wrapper">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-date">{{ page.date | date: "%Y-%m-%d" }}</p>
+    {{ content }}
 
-  <article class="post">
-    <div class="content-wrapper">
-      <h1 class="post-title">{{ page.title }}</h1>
-      <p class="post-date">{{ page.date | date: "%Y-%m-%d" }}</p>
+    {% if page.tags %}
+      <p class="post-tags">🏷️ Tags: 
+        {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
 
-      {{ content }}
+    <p id="view-count">👁️ 本文瀏覽次數：載入中...</p>
+  </div>
+</article>
 
-      {% if page.tags %}
-        <p class="post-tags">🏷️ Tags:
-          {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-          {% endfor %}
-        </p>
-      {% endif %}
+<!-- Firebase CDN 兼容版本 -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+  // Firebase 配置，請勿隨意洩漏給不信任的人
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
+    authDomain: "falling-comet-lab-blog.firebaseapp.com",
+    projectId: "falling-comet-lab-blog",
+    storageBucket: "falling-comet-lab-blog.appspot.com",
+    messagingSenderId: "275403715950",
+    appId: "1:275403715950:web:25383ec082d6ff3338bd7f"
+  };
 
-      <p id="view-count">👁️ 本文瀏覽次數：載入中...</p>
-    </div>
-  </article>
+  // 避免重複初始化 Firebase
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+    console.log("Firebase 初始化成功");
+  } else {
+    console.log("Firebase 已初始化");
+  }
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-  <script>
-    // Firebase 配置
-    const firebaseConfig = {
-      apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
-      authDomain: "falling-comet-lab-blog.firebaseapp.com",
-      projectId: "falling-comet-lab-blog",
-      storageBucket: "falling-comet-lab-blog.appspot.com",
-      messagingSenderId: "275403715950",
-      appId: "1:275403715950:web:25383ec082d6ff3338bd7f"
-    };
+  const db = firebase.firestore();
 
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-      console.log("Firebase 初始化成功");
-    }
+  // 使用當前頁面路徑作為 Firestore 文件 ID
+  const pagePath = location.pathname.replace(/^\/|\/$/g, "") || "index";
+  console.log("使用的文件 ID (pagePath):", pagePath);
 
-    const db = firebase.firestore();
+  const ref = db.collection("posts").doc(pagePath);
 
-    // 取得頁面路徑作為文件 ID (剔除前後斜線)
-    const pagePath = location.pathname.replace(/^\/|\/$/g, "") || "index";
-    const ref = db.collection("posts").doc(pagePath);
-
-    ref.get()
-      .then(docSnap => {
-        if (docSnap.exists) {
-          return ref.update({ views: firebase.firestore.FieldValue.increment(1) });
-        } else {
-          return ref.set({ views: 1 });
-        }
-      })
-      .then(() => ref.get())
-      .then(updatedDoc => {
-        const count = updatedDoc.data().views || 1;
-        document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：${count}`;
-      })
-      .catch(error => {
-        document.getElementById("view-count").innerText = "👁️ 本文瀏覽次數：錯誤";
-        console.error("Firestore 錯誤：", error);
-      });
-  </script>
-
-</body>
-</html>
+  // 更新瀏覽次數並取得最新數值
+  ref.get()
+    .then(docSnap => {
+      if (docSnap.exists) {
+        console.log("文件存在，瀏覽次數為:", docSnap.data().views);
+        return ref.update({ views: firebase.firestore.FieldValue.increment(1) });
+      } else {
+        console.log("文件不存在，建立新文件，初始瀏覽數 1");
+        return ref.set({ views: 1 });
+      }
+    })
+    .then(() => ref.get())
+    .then(updatedDoc => {
+      const count = updatedDoc.data().views || 1;
+      console.log("更新後的瀏覽次數:", count);
+      document.getElementById("view-count").innerText = `👁️ 本文瀏覽次數：${count}`;
+    })
+    .catch(error => {
+      console.error("讀寫 Firestore 發生錯誤:", error);
+      document.getElementById("view-count").innerText = "👁️ 本文瀏覽次數：錯誤";
+    });
+</script>
