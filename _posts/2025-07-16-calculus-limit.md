@@ -2,6 +2,7 @@
 layout: post
 title: "[微積分入門] 什麼是極限？"
 date: 2025-07-16
+bg: /images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
 tags: [Calculus, Math, Limits]
 categories: [Math]
 ---
