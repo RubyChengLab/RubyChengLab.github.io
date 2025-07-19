@@ -6,7 +6,7 @@ bg: /images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
 tags: [Arduino]
 categories: [Arduino]
 ---
-
+{% include post-style.html %}
 今天來試試讓蜂鳴器發出聲音！
 
 ```cpp
