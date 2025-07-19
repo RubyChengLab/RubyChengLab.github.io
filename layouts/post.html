@@ -1,5 +1,23 @@
-<article class="post" style="background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg'); background-size: cover; background-attachment: fixed;">
-  <div style="background: rgba(255, 255, 255, 0.5); padding: 2rem; border-radius: 12px; max-width: 800px; margin: 3rem auto;">
+<style>
+  body {
+    background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg'); /* 這裡換成你的圖片路徑 */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  /* 可以讓內容有一層半透明底，避免文字不清楚 */
+  div[style*="padding: 140px"] {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+</style>
+
+<article class="post">
+  <div>
     <h1>{{ page.title }}</h1>
     <p><small>{{ page.date | date: "%Y-%m-%d" }}</small></p>
     {{ content }}
