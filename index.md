@@ -2,7 +2,23 @@
 layout: default
 title: Falling Comet Lab
 ---
+<style>
+  body {
+    background-image: url('/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg'); /* 這裡換成你的圖片路徑 */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
 
+  /* 可以讓內容有一層半透明底，避免文字不清楚 */
+  div[style*="padding-top: 140px"] {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+</style>
 <script type="module" src="/assets/js/viewCounter.js"></script>
 
 <header style="
