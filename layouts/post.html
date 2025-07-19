@@ -1,27 +1,24 @@
-<article class="post">
-  <h1>{{ page.title }}</h1>
-  <p><small>{{ page.date | date: "%Y-%m-%d" }}</small></p>
-  <body style="background-image: url('/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg'); background-size: cover; background-attachment: fixed;">
+<article class="post" style="background-image: url('{{ page.bg | default: "/images/default.jpg" }}'); background-size: cover; background-attachment: fixed;">
   <div style="background: rgba(255, 255, 255, 0.5); padding: 2rem; border-radius: 12px; max-width: 800px; margin: 3rem auto;">
-  {{ content }}
-  </div>
-  <div class="content">
+    <h1>{{ page.title }}</h1>
+    <p><small>{{ page.date | date: "%Y-%m-%d" }}</small></p>
     {{ content }}
-  </div>
 
-  <!-- 👇 放這裡 -->
-  {% if page.tags %}
-    <p>🏷️ Tags: 
-      {% for tag in page.tags %}
-        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% if forloop.last == false %}, {% endif %}
-      {% endfor %}
+    {% if page.tags %}
+      <p>🏷️ Tags: 
+        {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    <p id="view-count" style="color: #555; font-size: 0.95rem; margin-top: 1.5rem;">
+      👁️ 本文瀏覽次數：載入中...
     </p>
-  {% endif %}
+  </div>
 </article>
-<p id="view-count" style="color: #555; font-size: 0.95rem; margin-top: 1.5rem;">
-  👁️ 本文瀏覽次數：載入中...
-</p>
 
+<!-- Firebase script 不變 -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
   import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
