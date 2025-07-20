@@ -3,94 +3,190 @@ layout: default
 title: Falling Comet Lab
 ---
 
-<header style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: #fff; border-bottom: 1px solid #ddd; box-shadow: 0 2px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
-  <h1 style="margin: 0; font-size: 1.8rem; font-weight: bold;">🌠 Falling Comet Lab</h1>
-  <nav style="display: flex; gap: 1.2rem;">
-    <a href="/categories/Arduino/" style="text-decoration: none; color: #2a2a2a;">Arduino</a>
-    <a href="/categories/Math/" style="text-decoration: none; color: #2a2a2a;">Math</a>
-    <a href="/categories/Electronics/" style="text-decoration: none; color: #2a2a2a;">Electronics</a>
-    <a href="/about/" style="text-decoration: none; color: #2a2a2a;">關於我</a>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>Falling Comet Lab</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fdfdfd;
+      color: #2a2a2a;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header .title {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    header nav a {
+      margin-left: 16px;
+      color: #2a2a2a;
+      text-decoration: none;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+      color: #4a90e2;
+    }
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    #search-input {
+      width: 100%;
+      padding: 8px 12px;
+      margin-bottom: 24px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      margin: 24px 0 12px;
+      font-weight: bold;
+    }
+    a.post-link {
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a.post-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="title">🌠 Falling Comet Lab</div>
+  <nav>
+    <a href="/arduino/">Arduino</a>
+    <a href="/math/">Math</a>
+    <a href="/electronics/">Electronics</a>
+    <a href="/about/">關於我</a>
   </nav>
 </header>
 
-<div class="content-container" style="max-width: 900px; margin: 40px auto; padding: 20px; background: rgba(255,255,255,0.9); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
+<div class="container">
+  <input id="search-input" type="text" placeholder="🔎 搜尋文章">
 
-  <h2>🔎 搜尋文章</h2>
-  <input id="search-input" type="text" placeholder="輸入關鍵字搜尋文章" style="width:100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-  <ul id="search-results" style="margin-top: 1em; padding-left: 1.2em;"></ul>
+  <ul id="search-results" style="list-style: none; padding-left: 0;"></ul>
 
-  <h2>🔧 最新文章</h2>
-  <ul>
-    {% for post in site.posts limit:5 %}
-      <li><a href="{{ post.url | relative_url }}" style="color: #4a90e2;">{{ post.title }}</a> <small>({{ post.date | date: "%Y-%m-%d" }})</small></li>
+  <div>
+    <div class="section-title">📌 最新文章</div>
+    <ul>
+      {% for post in site.posts limit:5 %}
+        <li>
+          <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+          <small>({{ post.date | date: "%Y-%m-%d" }})</small>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div>
+    <div class="section-title">🔥 熱門文章</div>
+    <ul id="popular-posts"><li>載入中...</li></ul>
+  </div>
+
+  <div>
+    <div class="section-title">🏷️ 標籤雲</div>
+    {% assign max_size = 0 %}
+    {% for tag in site.tags %}
+      {% if tag[1].size > max_size %}
+        {% assign max_size = tag[1].size %}
+      {% endif %}
     {% endfor %}
-  </ul>
+    {% for tag in site.tags %}
+      {% assign size = tag[1].size | times: 1.0 %}
+      {% assign font_size = size | divided_by: max_size | times: 120 | plus: 80 %}
+      <a href="/tags/{{ tag[0] }}" style="font-size: {{ font_size | round }}%; margin-right: 8px; text-decoration: none; color: #4a90e2;">{{ tag[0] }}</a>
+    {% endfor %}
+  </div>
 
-  <h2>🔥 熱門文章排行</h2>
-  <ul id="popular-posts"><li>載入中...</li></ul>
-
-  <h2>📌 標籤雲</h2>
-  {% assign max_size = 0 %}
-  {% for tag in site.tags %}
-    {% if tag[1].size > max_size %}
-      {% assign max_size = tag[1].size %}
-    {% endif %}
-  {% endfor %}
-  {% for tag in site.tags %}
-    {% assign size = tag[1].size | times: 1.0 %}
-    {% assign font_size = size | divided_by: max_size | times: 120 | plus: 80 %}
-    <a href="{{ '/tags/' | append: tag[0] | relative_url }}" style="font-size: {{ font_size | round }}%; margin-right: 0.7rem; color: #4a90e2;">{{ tag[0] }}</a>
-  {% endfor %}
-
-  <div id="view-counter" style="margin-top: 20px;"></div>
+  <div id="view-counter" style="margin-top: 32px;"></div>
 </div>
 
 <script>
 // 搜尋功能
 const posts = [
   {% for post in site.posts %}
-    { title: "{{ post.title | escape }}", url: "{{ post.url | relative_url }}", content: "{{ post.content | strip_html | strip_newlines | escape }}" },
+  { title: "{{ post.title | escape }}", url: "{{ post.url }}", content: "{{ post.content | strip_html | strip_newlines | escape }}" },
   {% endfor %}
 ];
-const input = document.getElementById("search-input"), results = document.getElementById("search-results");
-input.addEventListener("input", () => {
-  const q = input.value.toLowerCase();
-  results.innerHTML = "";
+const searchInput = document.getElementById("search-input");
+const searchResults = document.getElementById("search-results");
+
+searchInput.addEventListener("input", () => {
+  const q = searchInput.value.toLowerCase();
+  searchResults.innerHTML = "";
   if (q.length < 2) return;
   const filtered = posts.filter(p => p.title.toLowerCase().includes(q) || p.content.toLowerCase().includes(q));
-  results.innerHTML = filtered.length ? filtered.map(p => `<li><a href="${p.url}" style="color:#2a2a2a;">${p.title}</a></li>`).join('') : "<li>找不到符合的文章</li>";
+  if (filtered.length === 0) {
+    searchResults.innerHTML = "<li>找不到符合的文章</li>";
+    return;
+  }
+  filtered.forEach(p => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${p.url}" class="post-link">${p.title}</a>`;
+    searchResults.appendChild(li);
+  });
 });
 </script>
 
 <script type="module">
-// Firebase 瀏覽次數 + 熱門文章
+// Firebase 熱門文章與瀏覽次數
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getFirestore, collection, query, orderBy, limit, getDocs, doc, updateDoc, increment, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "你的 API KEY",
-  authDomain: "你的 DOMAIN",
-  projectId: "你的 PROJECT ID",
-};
-const app = initializeApp(firebaseConfig);
+const app = initializeApp({
+  apiKey: "...",
+  authDomain: "...",
+  projectId: "...",
+});
 const db = getFirestore(app);
 
-async function loadPopular() {
-  const el = document.getElementById("popular-posts");
+async function loadPopularPosts() {
   const q = query(collection(db, "posts"), orderBy("views", "desc"), limit(5));
-  const snap = await getDocs(q);
-  el.innerHTML = snap.empty ? "<li>還沒有熱門文章喔！</li>" : "";
-  snap.forEach(docSnap => {
-    const d = docSnap.data(), id = docSnap.id.replace(/_/g,"/");
-    el.innerHTML += `<li><a href="${id}" style="color:#4a90e2;">${d.title || id}（瀏覽:${d.views || 0}）</a></li>`;
+  const querySnapshot = await getDocs(q);
+  const popularPosts = document.getElementById("popular-posts");
+  popularPosts.innerHTML = "";
+  querySnapshot.forEach(docSnap => {
+    const d = docSnap.data();
+    const id = docSnap.id.replace(/_/g, "/");
+    const li = document.createElement("li");
+    li.innerHTML = `<a class="post-link" href="${id}">${d.title || id}（${d.views || 0} 次瀏覽）</a>`;
+    popularPosts.appendChild(li);
   });
 }
+
 async function countView() {
-  const page = location.pathname.replace(/\//g,"_") || "index";
-  const ref = doc(db, "posts", page);
+  const path = location.pathname.replace(/\//g, "_") || "index";
+  const ref = doc(db, "posts", path);
   try { await updateDoc(ref, { views: increment(1) }); } catch { await setDoc(ref, { views: 1 }); }
   const snap = await getDoc(ref);
-  if (snap.exists()) document.getElementById("view-counter").innerText = `👁️ 本頁瀏覽次數：${snap.data().views}`;
+  if (snap.exists()) {
+    document.getElementById("view-counter").innerHTML = `👁️ 本頁瀏覽次數：${snap.data().views}`;
+  }
 }
-loadPopular(); countView();
+
+loadPopularPosts();
+countView();
 </script>
+
+</body>
+</html>
