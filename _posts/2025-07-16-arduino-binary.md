@@ -6,6 +6,27 @@ bg: /images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
 tags: [Arduino, Math]
 categories: [Arduino, Math]
 ---
+<style>
+body {
+  background: url('/images/0bd08319-d586-4612-8481-914b3df9fe75.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+}
+
+.post-wrapper {
+  max-width: 900px;
+  margin: 80px auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 48px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+</style>
+
+<div class="post-wrapper">
+<h1>測試標題</h1>
+<p>內文測試，這裡是白底框框</p>
+</div>
 
 ## 📘《【Arduino入門】用LED學會數學：認識二進位》
 
