@@ -20,7 +20,7 @@ R_{\mathrm{總}} = R_1 + R_2
 $$
 
 電路示意圖：
-<video autoplay loop muted playsinline style="max-width: 100%;">
+<video autoplay muted playsinline style="max-width: 100%;" onended="this.pause();">
   <source src="/assets/videos/screen-recording.mp4" type="video/mp4">
 </video>
 
@@ -37,8 +37,8 @@ $$
 $$
 
 電路示意圖：
-<video autoplay loop muted playsinline style="max-width: 100%;">
-  <source src="/assets/videos/Screenrecording1.mp4" type="video/mp4">
+<video autoplay muted playsinline style="max-width: 100%;" onended="this.pause();">
+  <source src="/assets/videos/screen-recording1.mp4" type="video/mp4">
 </video>
 ---
 
