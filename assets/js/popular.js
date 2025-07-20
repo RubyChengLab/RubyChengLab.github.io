@@ -2,6 +2,7 @@ import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/9.23.
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 import { db } from "./firebaseInit.js";
 console.log("目前 Firebase Apps：", getApps());
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
 const firebaseConfig = {
   apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",

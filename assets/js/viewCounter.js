@@ -1,6 +1,7 @@
 import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const docRef = doc(db, "posts", path); // ✅ 這行不能漏！
 
 import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 import { db } from "./firebaseInit.js";
