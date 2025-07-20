@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  
+// 初始化 Firestore
+import { getFirestore, doc, getDoc, updateDoc, increment } from "firebase/firestore";
+const db = getFirestore();
+
+// 每次載入文章時執行
+async function incrementViewCount(slug) {
+  const ref = doc(db, "posts", slug);
+  await updateDoc(ref, {
+    views: increment(1)
+  });
+}
+async function getViewCount(slug) {
+  const ref = doc(db, "posts", slug);
+  const snapshot = await getDoc(ref);
+  const data = snapshot.data();
+  return data?.views || 0;
+}
+
 {% include post-style.html %}
 {% include header.html %}
 
@@ -11,6 +28,7 @@
       <div class="post-content">
         {{ content }}
       </div>
+      <p class="post-views">👁️ 瀏覽次數：<span id="view-count"></span></p>
 
       {% if page.tags %}
         <p class="post-tags">

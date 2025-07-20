@@ -1,5 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, query, collection, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+
+import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 import { db } from "./firebaseInit.js";
 
 console.log("Firebase Apps:", getApps());
@@ -14,12 +17,6 @@ const firebaseConfig = {
   measurementId: "G-TRDSPMNYQK"
 };
 
-const app = initializeApp(firebaseConfig);
-
-
-const rawPath = location.pathname;
-const path = rawPath === "/" ? "index" : rawPath.replace(/\//g, "_");
-const docRef = doc(db, "posts", path);
 if (!getApps().length) {
   initializeApp(firebaseConfig);
 }

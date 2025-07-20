@@ -35,7 +35,10 @@ $$
 $$
 \frac{1}{R_{\text{總}}} = \frac{1}{R_1} + \frac{1}{R_2}
 $$
-
+電路示意圖：
+<video autoplay loop muted playsinline style="max-width: 100%;">
+  <source src="/assets/videos/screen-recording1.mp4" type="video/mp4">
+</video>
 ---
 
 掌握這兩種連接方式，是分析電路的第一步！
