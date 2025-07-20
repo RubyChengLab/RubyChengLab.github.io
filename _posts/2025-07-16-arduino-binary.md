@@ -8,7 +8,7 @@ categories: [Arduino, Math]
 ---
 <style>
 body {
-  background: url('/images/0bd08319-d586-4612-8481-914b3df9fe75.png') no-repeat center center fixed;
+  background: url('/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg') no-repeat center center fixed;
   background-size: cover;
   margin: 0;
 }
