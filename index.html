@@ -3,7 +3,7 @@ layout: default
 title: Falling Comet Lab
 ---
 import { collection, query, orderBy, limit, getDocs } from "firebase/firestore";
-<link rel="icon" href="/images/A deep blue night sk.png">
+<link rel="icon" href="/images/szru1-rocxt-001.ico">
 async function getPopularPosts() {
   const q = query(collection(db, "posts"), orderBy("views", "desc"), limit(5));
   const snapshot = await getDocs(q);
