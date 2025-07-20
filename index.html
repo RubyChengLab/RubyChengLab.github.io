@@ -21,28 +21,30 @@ title: Falling Comet Lab
       color: #2a2a2a;
     }
   </style>
+<body>
+  <div class="content-container">
+    <section>
+    <h2>📌 最新文章</h2>
+    <ul>
+    {% for post in site.posts limit:5 %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
+    {% endfor %}
+    </ul>
+    </section>
 
-<section>
-<h2>📌 最新文章</h2>
-<ul>
-{% for post in site.posts limit:5 %}
-<li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
-{% endfor %}
-</ul>
-</section>
+    <section>
+    <h2>🔥 熱門文章</h2>
+    <ul id="popular-posts"><li>載入中...</li></ul>
+    </section>
 
-<section>
-<h2>🔥 熱門文章</h2>
-<ul id="popular-posts"><li>載入中...</li></ul>
-</section>
-
-<section>
-<h2>🏷️ 標籤雲</h2>
-{% for tag in site.tags %}
-<a href="/tags/{{ tag[0] }}" style="font-size: {{ tag[1].size | times: 8 | plus: 80 }}%;">{{ tag[0] }}</a>
-{% endfor %}
-</section>
-
+    <section>
+    <h2>🏷️ 標籤雲</h2>
+    {% for tag in site.tags %}
+    <a href="/tags/{{ tag[0] }}" style="font-size: {{ tag[1].size | times: 8 | plus: 80 }}%;">{{ tag[0] }}</a>
+    {% endfor %}
+    </section>
+  </div>
+</body>
 <div id="view-counter" style="margin-top:24px;"></div>
 
 <script>
