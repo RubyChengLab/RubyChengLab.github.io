@@ -2,68 +2,161 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Falling Comet Lab</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script type="module" src="/assets/js/viewCounter.js"></script>
   <style>
     body {
+      margin: 0;
       background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg');
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;
       background-repeat: no-repeat;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2a2a2a;
     }
     .content-container {
       background-color: rgba(255, 255, 255, 0.85);
       border-radius: 12px;
       padding: 40px;
-      margin: 60px auto 0 auto;
+      margin: 80px auto 0 auto;
       max-width: 960px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      color: #2a2a2a;
+    }
+    footer {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+    }
+    footer a {
+      color: #4a90e2;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-<header style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 24px; border-bottom: 1px solid #ddd; position: fixed; top: 0; left: 0; right: 0; background: #fff; box-shadow: 0 2px 6px rgb(0 0 0 / 0.1); z-index: 100;">
-  <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">🌠 Falling Comet Lab</h1>
-  <div style="display: flex; gap: 2rem; align-items: flex-start; font-size: 0.95rem; color: #444;">
-    <div style="display: flex; flex-direction: column; min-width: 280px;">
-      <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 6px;">
-        <h2 style="margin: 0; font-size: 1rem;">🔎 搜尋文章</h2>
-        <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章" style="flex: 1; padding: 0.5em 0.7em; font-size: 0.95rem; border: 1.5px solid #ccc; border-radius: 6px; transition: border-color 0.3s;">
-      </div>
-      <ul id="search-results" style="max-height: 180px; overflow-y: auto; margin: 0; padding-left: 1.2em; background: #fefefe; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); font-size: 0.9rem;"></ul>
-    </div>
-    <nav>
-      <ul style="list-style: none; display: flex; gap: 1em; margin: 0; padding: 0;">
-        <li><a href="/categories/Arduino/">Arduino</a></li>
-        <li><a href="/categories/Math/">Math</a></li>
-        <li><a href="/categories/Electronics/">Electronics</a></li>
-        <li><a href="/about/">關於我</a></li>
-      </ul>
-    </nav>
-  </div>
+
+<header style="position: fixed; top: 0; left: 0; right: 0; background: #fff; border-bottom: 1px solid #ddd; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 12px 24px; display: flex; justify-content: space-between; z-index: 100;">
+  <h1 style="margin: 0; font-size: 1.8rem;">🌠 Falling Comet Lab</h1>
+  <nav>
+    <a href="/categories/Arduino/" style="margin-right: 1rem;">Arduino</a>
+    <a href="/categories/Math/" style="margin-right: 1rem;">Math</a>
+    <a href="/categories/Electronics/" style="margin-right: 1rem;">Electronics</a>
+    <a href="/about/">關於我</a>
+  </nav>
 </header>
 
-<div class="content-container" style="margin-top:120px">
-  <section id="tag-cloud-section"></section>
+<div class="content-container">
+
+  <h2>🔎 搜尋文章</h2>
+  <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章" style="width: 100%; padding: 10px; font-size: 1rem; border-radius: 6px; border: 1.5px solid #ccc;">
+  <ul id="search-results" style="list-style: none; padding-left: 0; margin-top: 10px;"></ul>
+
   <h2>🔥 熱門文章排行</h2>
   <ul id="popular-posts"><li>載入中...</li></ul>
+
   <h2>🔧 最新文章</h2>
-  <ul id="latest-posts"></ul>
+  <ul>
+    <!-- 這裡可由 Jekyll 生成最新文章 -->
+    <li><a href="#" style="color: #4a90e2;">範例文章一</a></li>
+    <li><a href="#" style="color: #4a90e2;">範例文章二</a></li>
+  </ul>
+
   <h2>🎯 我們在做什麼？</h2>
   <ul>
     <li>💡 提供 Arduino 專案教學與創作靈感</li>
-    <li>📘 整理三電一工筆記（電路、電子、電磁、工程數學）</li>
-    <li>🔍 整合互動學習工具，讓數學和電子不再困難</li>
-    <li>🧁 偶爾還會分享甜點與創意人生（隕落蛋糕店 ♥）</li>
+    <li>📘 三電一工筆記整理</li>
+    <li>🔍 整合互動學習工具</li>
+    <li>🧁 偶爾分享甜點與創意人生</li>
   </ul>
-  <a href="https://go-big-or-go-home.streamlit.app/" target="_blank" style="font-size: 1.25rem; color: #4a90e2; font-weight: 700; text-decoration: none; border-bottom: 2px solid transparent; transition: border-color 0.3s;">前往《微積分 + 三電一工》教學平台</a>
-  <p id="view-counter" style="margin-top: 20px; font-size: 1rem;"></p>
+
+  <p id="view-counter" style="margin-top: 20px;">👁️ 本頁瀏覽次數：載入中...</p>
+
 </div>
-<script type="module" src="/assets/js/mainPageScripts.js"></script>
+
+<footer>
+  &copy; 2025 Falling Comet Lab | <a href="/about/">關於本站</a> | Powered by Jekyll + Firebase
+</footer>
+
+<script type="module">
+  // Firebase 設定
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getFirestore, collection, query, orderBy, limit, getDocs, doc, getDoc, updateDoc, increment, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
+    authDomain: "falling-comet-lab-blog.firebaseapp.com",
+    projectId: "falling-comet-lab-blog",
+    storageBucket: "falling-comet-lab-blog.appspot.com",
+    messagingSenderId: "275403715950",
+    appId: "1:275403715950:web:25383ec082d6ff3338bd7f",
+    measurementId: "G-TRDSPMNYQK"
+  };
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 瀏覽次數統計
+  async function countView() {
+    const pagePath = location.pathname.replace(/\//g, "_") || "index";
+    const postRef = doc(db, "posts", pagePath);
+    try {
+      await updateDoc(postRef, { views: increment(1) });
+    } catch {
+      await setDoc(postRef, { views: 1 });
+    }
+    const postSnap = await getDoc(postRef);
+    if (postSnap.exists()) {
+      document.getElementById("view-counter").innerHTML = `👁️ 本頁瀏覽次數：${postSnap.data().views}`;
+    }
+  }
+  countView();
+
+  // 熱門文章讀取
+  async function loadPopularPosts() {
+    const q = query(collection(db, "posts"), orderBy("views", "desc"), limit(5));
+    const snapshot = await getDocs(q);
+    const el = document.getElementById("popular-posts");
+    el.innerHTML = "";
+    snapshot.forEach(docSnap => {
+      const data = docSnap.data();
+      const id = docSnap.id.replace(/_/g, "/");
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="${id}" style="color: #4a90e2;">${data.title || id}</a>（瀏覽: ${data.views}）`;
+      el.appendChild(li);
+    });
+    if (snapshot.empty) el.innerHTML = "<li>還沒有熱門文章喔！</li>";
+  }
+  loadPopularPosts();
+
+  // 搜尋功能 (範例用靜態資料，可配合 Jekyll 自動生成 posts 陣列)
+  const posts = [
+    { title: "範例文章一", url: "#", content: "內容一..." },
+    { title: "範例文章二", url: "#", content: "內容二..." }
+  ];
+  document.getElementById("search-input").addEventListener("input", function() {
+    const q = this.value.toLowerCase();
+    const resultEl = document.getElementById("search-results");
+    resultEl.innerHTML = "";
+    if (q.length < 2) return;
+    const results = posts.filter(p => p.title.toLowerCase().includes(q) || p.content.toLowerCase().includes(q));
+    if (results.length === 0) {
+      resultEl.innerHTML = "<li>找不到符合的文章</li>";
+    } else {
+      results.forEach(p => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="${p.url}" style="color:#2a2a2a;">${p.title}</a>`;
+        resultEl.appendChild(li);
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
