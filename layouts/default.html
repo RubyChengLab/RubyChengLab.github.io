@@ -1,39 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>🌠 Falling Comet Lab</title>
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <style>
-    body {
-      background: url('/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg') no-repeat center center fixed;
-      background-size: cover;
-    }
-    main {
-      max-width: 960px;
-      margin: 100px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    header {
-      display:flex; justify-content:space-between; align-items:center;
-      background:white; padding:16px 24px; border-bottom:1px solid #ddd;
-      position:sticky; top:0; z-index:100;
-    }
-    header .title { font-size:1.8rem; font-weight:bold; white-space:nowrap; }
-    nav a { margin-left:16px; text-decoration:none; color:#333; font-weight:500; }
-    nav a:hover { color:#0077ff; }
-    main { max-width:800px; margin:40px auto; padding:0 24px; }
-    a { color: #0077ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
-<main>
-  
   {{ content }}
-</main>
+  {% include footer.html %}
 </body>
 </html>
