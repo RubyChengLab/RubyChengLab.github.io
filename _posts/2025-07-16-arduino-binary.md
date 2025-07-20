@@ -6,13 +6,6 @@ bg: /images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
 tags: [Arduino, Math]
 categories: [Arduino, Math]
 ---
-
-
-<div class="post-wrapper">
-<h1>測試標題</h1>
-<p>內文測試，這裡是白底框框</p>
-</div>
-
 ## 📘《【Arduino入門】用LED學會數學：認識二進位》
 
 ### 👋 歡迎來到 Falling Comet Lab！
