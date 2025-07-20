@@ -5,6 +5,7 @@ permalink: /:categories/:title/
 url: "https://RubyChengLab.github.io"
 twitter_username: yourTwitter
 github_username: RubyChengLab
+email: fallingcometlab@gmail.com
 
 theme: minima
 markdown: kramdown
