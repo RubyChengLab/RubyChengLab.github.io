@@ -26,9 +26,6 @@ $$
 電路示意圖：
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZFMZXhuiZNU" frameborder="0" allowfullscreen></iframe>
 
-yaml
-複製程式碼
-
 總電阻計算公式：
 
 $$
