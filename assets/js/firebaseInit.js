@@ -1,7 +1,6 @@
-import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+// /assets/js/firebaseInit.js
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-import { db } from "./firebaseInit.js";
-console.log("目前 Firebase Apps：", getApps());
 
 const firebaseConfig = {
   apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
@@ -14,8 +13,7 @@ const firebaseConfig = {
   measurementId: "G-TRDSPMNYQK"
 };
 
-if (!getApps().length) {
-  initializeApp(firebaseConfig);
-}
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-const db = getFirestore();
+export { db };
