@@ -16,7 +16,7 @@ categories: [Electronics]
 總電阻計算公式：
 
 $$
-R_{\text{總}} = R_1 + R_2
+R_{\mathrm{總}} = R_1 + R_2
 $$
 
 電路示意圖：
@@ -35,6 +35,7 @@ $$
 $$
 \frac{1}{R_{\text{總}}} = \frac{1}{R_1} + \frac{1}{R_2}
 $$
+
 電路示意圖：
 <video autoplay loop muted playsinline style="max-width: 100%;">
   <source src="/assets/videos/Screenrecording1.mp4" type="video/mp4">

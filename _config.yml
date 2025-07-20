@@ -1,20 +1,20 @@
 title: Falling Comet Lab
 description: Arduino x 數學教學
 baseurl: ""
-background: url('/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg')
-permalink: /:categories/:title/
 url: "https://RubyChengLab.github.io"
+permalink: /:categories/:title/
 twitter_username: yourTwitter
 github_username: RubyChengLab
 email: fallingcometlab@gmail.com
+
 markdown: kramdown
+highlighter: rouge
+
 kramdown:
   math_engine: mathjax
   input: GFM
-  
+
 theme: minima
-markdown: kramdown
-highlighter: rouge
 
 plugins:
   - jekyll-feed

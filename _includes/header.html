@@ -1,3 +1,7 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 <style>
 @media (max-width: 768px) {
   header {
@@ -14,9 +18,8 @@
     width: 100%;
   }
 }
-</style>
 
-<header style="
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,45 +32,77 @@
   z-index: 100;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   flex-wrap: wrap;
-">
+}
 
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+nav a {
+  color: #2a2a2a;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #4a90e2;
+}
+
+.search-box {
+  min-width: 260px;
+  width: 260px;
+}
+
+.search-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em 0.7em;
+  font-size: 0.95rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #4a90e2;
+}
+
+#search-results {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding-left: 1.2em;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+}
+</style>
+
+<header>
   <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
     🌠 Falling Comet Lab
   </h1>
 
-  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; width: 100%; justify-content: flex-end;">
-
+  <div class="right-group" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
     <nav>
-      <ul style="list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; font-size: 1rem;">
-        <li><a href="{{ site.baseurl }}/categories/Arduino/" style="color: #2a2a2a; text-decoration: none;">Arduino</a></li>
-        <li><a href="{{ site.baseurl }}/categories/Math/" style="color: #2a2a2a; text-decoration: none;">Math</a></li>
-        <li><a href="{{ site.baseurl }}/categories/Electronics/" style="color: #2a2a2a; text-decoration: none;">Electronics</a></li>
-        <li><a href="/about/" style="color: #2a2a2a; text-decoration: none;">關於我</a></li>
+      <ul>
+        <li><a href="{{ site.baseurl }}/categories/Arduino/">Arduino</a></li>
+        <li><a href="{{ site.baseurl }}/categories/Math/">Math</a></li>
+        <li><a href="{{ site.baseurl }}/categories/Electronics/">Electronics</a></li>
+        <li><a href="/about/">關於我</a></li>
       </ul>
     </nav>
 
-    <div class="search-box" style="display: flex; flex-direction: column; min-width: 260px; flex: 1;">
-      <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章" style="
-        width: 100%;
-        padding: 0.5em 0.7em;
-        font-size: 0.95rem;
-        border: 1.5px solid #ccc;
-        border-radius: 6px;
-        transition: border-color 0.3s;
-      " onfocus="this.style.borderColor='#4a90e2'" onblur="this.style.borderColor='#ccc'">
-      <ul id="search-results" style="
-        max-height: 200px;
-        overflow-y: auto;
-        margin-top: 8px;
-        margin-bottom: 0;
-        padding-left: 1.2em;
-        background: #fefefe;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        font-size: 0.9rem;
-      "></ul>
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章">
+      <ul id="search-results"></ul>
     </div>
-
   </div>
 </header>

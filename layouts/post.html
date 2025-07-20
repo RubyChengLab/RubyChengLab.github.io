@@ -1,39 +1,72 @@
----
-layout: default
----
-<style>
-body {
-  background: url('/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  margin: 0;
-}
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-.post-wrapper {
-  max-width: 900px;
-  margin: 80px auto;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 48px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-</style>
+  <!-- MathJax 設定 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    body {
+      background: url('{{ site.background }}') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .post-wrapper {
+      max-width: 900px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 48px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .post-title {
+      margin-top: 0;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
 <div class="post-wrapper">
   <h1 class="post-title">{{ page.title }}</h1>
-  <p class="post-date">{{ page.date | date: "%Y-%m-%d" }}</p>
-  <div class="post-content">{{ content }}</div>
-  <p class="post-views">👁️ 瀏覽次數：<span id="view-count">載入中...</span></p>
+  <p class="post-date">📅 {{ page.date | date: "%Y-%m-%d" }}</p>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
 
   {% if page.tags %}
-    <p class="post-tags">🏷️ Tags:
-      {% for tag in page.tags %}
-        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-      {% endfor %}
-    </p>
+  <p class="post-tags">🏷️ Tags：
+    {% for tag in page.tags %}
+      <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  </p>
   {% endif %}
+
+  <p class="post-views">👁️ 瀏覽次數：<span id="view-count">載入中...</span></p>
 </div>
 
+<!-- Firebase 瀏覽次數 -->
 <script type="module">
-// firebase 初始化
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getFirestore, doc, getDoc, updateDoc, increment, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
@@ -42,14 +75,17 @@ const app = initializeApp({
   authDomain: "...",
   projectId: "...",
 });
+
 const db = getFirestore(app);
 
-// 瀏覽次數
 async function countView() {
   const id = location.pathname.replace(/\//g, "_") || "index";
   const ref = doc(db, "posts", id);
-  try { await updateDoc(ref, { views: increment(1) }); } 
-  catch { await setDoc(ref, { views: 1 }); }
+  try {
+    await updateDoc(ref, { views: increment(1) });
+  } catch {
+    await setDoc(ref, { views: 1 });
+  }
   const snap = await getDoc(ref);
   if (snap.exists()) {
     document.getElementById("view-count").innerText = snap.data().views;
@@ -57,3 +93,6 @@ async function countView() {
 }
 countView();
 </script>
+
+</body>
+</html>
