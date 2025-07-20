@@ -2,106 +2,34 @@
 layout: default
 title: Falling Comet Lab
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <title>🌠 Falling Comet Lab</title>
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #fafafa;
-      color: #333;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      padding: 16px 24px;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    header .title {
-      font-size: 1.8rem;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-    nav a {
-      margin-left: 16px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: #0077ff;
-    }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 24px;
-    }
-    #search-input {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 24px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-      margin-top: 32px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    a {
-      color: #0077ff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-<main>
-  <section>
-    <h2>📌 最新文章</h2>
-    <ul>
-      {% for post in site.posts limit:5 %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
-      {% endfor %}
-    </ul>
-  </section>
+<section>
+<h2>📌 最新文章</h2>
+<ul>
+{% for post in site.posts limit:5 %}
+<li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
+{% endfor %}
+</ul>
+</section>
 
-  <section>
-    <h2>🔥 熱門文章</h2>
-    <ul id="popular-posts"><li>載入中...</li></ul>
-  </section>
+<section>
+<h2>🔥 熱門文章</h2>
+<ul id="popular-posts"><li>載入中...</li></ul>
+</section>
 
-  <section>
-    <h2>🏷️ 標籤雲</h2>
-    {% for tag in site.tags %}
-    <a href="/tags/{{ tag[0] }}" style="font-size: {{ tag[1].size | times: 8 | plus: 80 }}%;">{{ tag[0] }}</a>
-    {% endfor %}
-  </section>
+<section>
+<h2>🏷️ 標籤雲</h2>
+{% for tag in site.tags %}
+<a href="/tags/{{ tag[0] }}" style="font-size: {{ tag[1].size | times: 8 | plus: 80 }}%;">{{ tag[0] }}</a>
+{% endfor %}
+</section>
 
-  <div id="view-counter" style="margin-top: 24px;"></div>
-</main>
+<div id="view-counter" style="margin-top:24px;"></div>
 
 <script>
-// 簡單搜尋功能
 const posts = [
-  {% for post in site.posts %}
-  { title: "{{ post.title | escape }}", url: "{{ post.url }}" },
-  {% endfor %}
+{% for post in site.posts %}
+{ title: "{{ post.title | escape }}", url: "{{ post.url }}" },
+{% endfor %}
 ];
 document.getElementById("search-input").addEventListener("input", function () {
   const q = this.value.toLowerCase();
@@ -112,7 +40,6 @@ document.getElementById("search-input").addEventListener("input", function () {
 </script>
 
 <script type="module">
-// Firebase 熱門文章、瀏覽次數
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getFirestore, collection, query, orderBy, limit, getDocs, doc, updateDoc, increment, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
@@ -146,6 +73,3 @@ async function countView() {
 loadPopular();
 countView();
 </script>
-
-</body>
-</html>

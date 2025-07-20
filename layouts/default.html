@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>🌠 Falling Comet Lab</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body { margin:0; font-family: 'Segoe UI', Tahoma, sans-serif; background:#fafafa; color:#333; }
+    header {
+      display:flex; justify-content:space-between; align-items:center;
+      background:white; padding:16px 24px; border-bottom:1px solid #ddd;
+      position:sticky; top:0; z-index:100;
+    }
+    header .title { font-size:1.8rem; font-weight:bold; white-space:nowrap; }
+    nav a { margin-left:16px; text-decoration:none; color:#333; font-weight:500; }
+    nav a:hover { color:#0077ff; }
+    main { max-width:800px; margin:40px auto; padding:0 24px; }
+    a { color: #0077ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
+<header>
+  <div class="title">🌠 Falling Comet Lab</div>
+  <nav>
+    <a href="/arduino/">Arduino</a>
+    <a href="/math/">Math</a>
+    <a href="/electronics/">Electronics</a>
+    <a href="/about/">關於我</a>
+  </nav>
+</header>
+<main>
   {{ content }}
-  {% include footer.html %}
+</main>
 </body>
 </html>
