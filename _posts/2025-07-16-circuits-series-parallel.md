@@ -19,14 +19,16 @@ $$
 R_{\text{總}} = R_1 + R_2
 $$
 
----
-
-### 🔌 並聯（Parallel）
-
 電路示意圖：
 <video autoplay loop muted playsinline style="max-width: 100%;">
   <source src="/assets/videos/screen-recording.mp4" type="video/mp4">
 </video>
+
+---
+
+### 🔌 並聯（Parallel）
+
+
 
 總電阻計算公式：
 
