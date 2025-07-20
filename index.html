@@ -34,15 +34,6 @@ title: Falling Comet Lab
   </div>
 </body>
 <div id="view-counter" style="margin-top:24px;"></div>
-<section class="content-container">
-  <h2>📌 最新文章</h2>
-  <ul>
-    {% for post in site.posts limit:5 %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
-    {% endfor %}
-  </ul>
-</section>
-
 <footer style="text-align:center; margin-top:40px;">
   <h3 style="font-size:1.2rem; color:#666;">🏷️ Tags</h3>
   {% for tag in site.tags %}
