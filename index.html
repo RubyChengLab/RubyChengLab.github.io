@@ -24,27 +24,33 @@ title: Falling Comet Lab
 <body>
   <div class="content-container">
     <section>
-    <h2>📌 最新文章</h2>
+    <h2>📌  最新文章</h2>
     <ul>
     {% for post in site.posts limit:5 %}
     <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
     {% endfor %}
     </ul>
     </section>
-
-    <section>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        {% for tag in site.tags %}
-        <a href="/tags/{{ tag[0] }}" style="font-size: {{ tag[1].size | times: 8 | plus: 80 }}%; background: #f5f5f5; padding: 6px 12px; border-radius: 8px; text-decoration: none; color: #333;">
-          {{ tag[0] }}
-        </a>
-        {% endfor %}
-      </div>
-    </section>
   </div>
 </body>
 <div id="view-counter" style="margin-top:24px;"></div>
+<section class="content-container">
+  <h2>📌 最新文章</h2>
+  <ul>
+    {% for post in site.posts limit:5 %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
+    {% endfor %}
+  </ul>
+</section>
 
+<footer style="text-align:center; margin-top:40px;">
+  <h3 style="font-size:1.2rem; color:#666;">🏷️ Tags</h3>
+  {% for tag in site.tags %}
+  <a href="/tags/{{ tag[0] }}" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+    {{ tag[0] }}
+  </a>
+  {% endfor %}
+</footer>
 <script>
 const posts = [
 {% for post in site.posts %}
