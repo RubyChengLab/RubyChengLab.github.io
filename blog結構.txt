@@ -1,0 +1,368 @@
+列出磁碟區 OS 的資料夾 PATH
+磁碟區序號為 2626-2F23
+C:.
+│  .gitignore
+│  404.html
+│  about.md
+│  blog結構.txt
+│  bundle
+│  diff_commits.ps1
+│  diff_commits.sh
+│  empty.txt
+│  Gemfile
+│  Gemfile.lock
+│  generate_categories.py
+│  generate_tags.rb
+│  index.html
+│  push.bat
+│  start_server.bat
+│  tags_debug.html
+│  _config.yml
+│  
+├─.jekyll-cache
+│  │  .gitignore
+│  │  
+│  └─Jekyll
+│      └─Cache
+│          ├─Jekyll--Cache
+│          │  └─b7
+│          │          9606fb3afea5bd1609ed40b622142f1c98125abcfe89a76a661b0e8e343910
+│          │          
+│          └─Jekyll--Converters--Markdown
+│              ├─02
+│              │      15b1110ac06d1e966eb9620843635b0632bfdcd84a065f6daf59484c78be2f
+│              │      
+│              ├─0f
+│              │      fc7ab89fafded33562c3ca9a42e4714f4ead04e9f124e6c021b1616d89e812
+│              │      
+│              ├─14
+│              │      3bfa2c19ff97071949edef2439e4c060fa89cc0f76a4ff7d067eae37597d2b
+│              │      
+│              ├─1c
+│              │      04d1916054d0cae01c74385c83fda134ac72c33c5adebfc1c39bcd8e817de7
+│              │      
+│              ├─1e
+│              │      b81a78db35043a08b21b44829f4f7e499d2ce37c1d2635138dc2a0b0a5ae9d
+│              │      
+│              ├─22
+│              │      1408eb8e2c5bfd394482576e35f68ef66fa0419200619fe6487e9bb23508bb
+│              │      
+│              ├─24
+│              │      9f69570f2f564267b05977ceeb511d5824a4327c74d6b8b40f6615a891ef67
+│              │      
+│              ├─2c
+│              │      2c7e64f0668012e102612d02f9ff4743cfaa957535e93a9d42662f70e2647e
+│              │      
+│              ├─31
+│              │      5d8d6ceac2b93238016760672c79ac90ac2f991b2aed7896413bf426e9525e
+│              │      
+│              ├─32
+│              │      4efc3e74229e6e70eb0176374d036ca0da0940b603507f2a129cdde9b4a2fa
+│              │      
+│              ├─36
+│              │      e1680392fda540eb773e1ce41224d053bf24713ebddda34d0edbfefe088460
+│              │      
+│              ├─39
+│              │      e416b74214e05bf579911b170d21b43b1bc17155b53d5f15e50508832fe17c
+│              │      
+│              ├─3a
+│              │      14cdc60ffc6d271e7f3f607a73d81cc99c21e164ee17c2b78934cf5b13a0f7
+│              │      
+│              ├─3d
+│              │      887f3cee4d49d42d4ff4111ceafd711aa3b1f574c0d7fc01574d9986b604c5
+│              │      
+│              ├─40
+│              │      f9fb7f27ae4e16640ff80236fe52150633100104dd1addf738f6f9af669112
+│              │      
+│              ├─48
+│              │      dca73d62d1524d58a669b47d0dae377bd75ab2a91a77af81fe53bd0bd05435
+│              │      
+│              ├─4c
+│              │      d9ef1e3de753ed6e399bbc2b493efce1b6b19bb76e47c03bd38dda452ba450
+│              │      
+│              ├─50
+│              │      57cada8dfe42503cc5372b217c33cd8f869fb398520a52a6d2a2d53cc3cd34
+│              │      
+│              ├─55
+│              │      c90a22a89d56c4269c704ba6dab0b5484f2196088911237c4e22a393e307ea
+│              │      
+│              ├─5b
+│              │      c4895c148afbef9e68597d2f1105fa90a61e1a33ea2de18952f166ccf9470f
+│              │      
+│              ├─5c
+│              │      aff0082c12856dcb383e473c49a7d05c1ee93c9b16e21cca78640202ad2a12
+│              │      
+│              ├─64
+│              │      0d92fbbf55938d1b464dbfcf98e7d387932af1c0650918397a0a5d92eef259
+│              │      
+│              ├─71
+│              │      f76bba6471c5c18fca20333ba4a38b457c66199b1d290dec45c5bf701a91c0
+│              │      
+│              ├─72
+│              │      7913a54aea1e409e5adc939f993d93e8fef96cf8064d229a5ef834baef6fd4
+│              │      
+│              ├─74
+│              │      35e2276223876b55ae22494012e738cd0cd7f8a1e468fbe056f55d0edffb32
+│              │      
+│              ├─7b
+│              │      ece5830c63d5bb92a08a2f95302af83339f89faf1cd14333cc9a77b3675f2f
+│              │      
+│              ├─84
+│              │      f7c3a72b474caea647bf727947927b8c10da36ae17094fcddc7699b0c86e31
+│              │      
+│              ├─89
+│              │      9efdd63a5df4d8e946365810ab88242e508d7bf6e7ea2ff089c666d52d23d4
+│              │      
+│              ├─8e
+│              │      971733ad21b1e4881bd3487d164da867f49efa4af8cd50c96b660bbb484855
+│              │      
+│              ├─95
+│              │      e2b4e8e621463ca9ab60ef6d5fe7dbd9208c166036555a3e27974e6e6453b2
+│              │      
+│              ├─a2
+│              │      2434fa1464d2d5a7d4ef7fe527858809738019a2eca9316e34df42fddfcb65
+│              │      
+│              ├─a3
+│              │      b56ffda9d50589c0e82d26c4fce217600cbbd22e05c35fc8cd5e969a36f635
+│              │      
+│              ├─a5
+│              │      1c690de593ea921111b6df151206c42252a90724f3fed56d2fbb3a4d3b4fca
+│              │      
+│              ├─b0
+│              │      04e20e94ccbd40552e931a89a6a4f4c45262f53f55be93f88eb80c03ca0d43
+│              │      
+│              ├─b3
+│              │      198d4bc1c1ffed2178a9a7ce73d0a566f099802156ffb28aafe04a6269c114
+│              │      
+│              ├─b4
+│              │      9afa9a6da32d12b63c77d0703cafde0b97ad013b791c7a5ea4292d43efc505
+│              │      
+│              ├─b6
+│              │      f930581a2e87a82c7b8e0d179c490120a197fbac376cfe5fdcf1f51f3ff226
+│              │      
+│              ├─ba
+│              │      6a0169901fd9e76dcfc595d9967546e29f091f13569343d8f1a8b54da544db
+│              │      
+│              ├─bc
+│              │      62ed6b05583fa6b9710df1724a258ffbfcc62bdcc152b8bf456927cff0317e
+│              │      
+│              ├─c1
+│              │      074ec9addf98adf7d7f860c8774ac0e3b68569aee4b8d729626cb8717e5aa0
+│              │      
+│              ├─c2
+│              │      87b5c6882d3141e373238fc6cc3279535170bb4fb0bf9a355a143e2448c210
+│              │      
+│              ├─c5
+│              │      e23963e5b3174b469fe71f37c30b02d3cb393c6882edbe57459ed14997611f
+│              │      
+│              ├─c8
+│              │      dc2f6b98939a26ef1cf1bc543d51c6a88fb532926466d5e9700daff1432516
+│              │      
+│              ├─c9
+│              │      b6b0295dd988c7101df3a83beb5fb8a5c463f175ad6a4719018dc88ddd0eb4
+│              │      
+│              ├─cd
+│              │      a73199dda95e7b188aef43cf9122f553bd93ce503441bac26a2acd7bcb7e20
+│              │      
+│              ├─ce
+│              │      7aac9a9978db3f1b89e2a93a0872b4359a0ba39af853dbc295380e47f2a9d3
+│              │      97c16545413c5d5e756c06ffb381ed4eb3cf6e331fca9129cf56d28ea1b2ae
+│              │      
+│              ├─d4
+│              │      c06abbeb29b6bf959edd9ed542becdd36d52d177705516c2a280944b1d3c3e
+│              │      
+│              ├─da
+│              │      0d6ceaf24e5861095e618d0c2dadfcea5fa5fa306258f854fe28b7bc80f898
+│              │      
+│              ├─dc
+│              │      460bf9767e83cbfdef30f4d977a25a0d219562c2388835078f0273f17fc87a
+│              │      
+│              ├─dd
+│              │      1adf22d3d614d069b24731accd7ee8858842261d802365d6c6ca9caf21786b
+│              │      
+│              ├─e3
+│              │      b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+│              │      
+│              ├─e9
+│              │      209c6605a631ec18ab86d99a2cbeaa55fe22697eb6e710ffba2459405ada6c
+│              │      
+│              ├─ec
+│              │      f92fe0c749d4cd3ebf59b1d205a09c3b78c8d1140bd1aa9545b3d93b495628
+│              │      
+│              ├─f7
+│              │      dc248f36f1607e0b84ed0eea85ecab6dc778dc7b7b007f49d7fb59650679a7
+│              │      
+│              └─fd
+│                      4f57836cf67e9a31e5dc2528445eca7874ac5a97e9ed5bb64a30e0671ccf58
+│                      cdb334818cd974013f1112205b2545162c6dfe292b890ec49d00b05ab4b5ed
+│                      
+├─assets
+│  ├─images
+│  │      20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
+│  │      A deep blue night sk.png
+│  │      szru1-rocxt-001.ico
+│  │      
+│  ├─js
+│  │      firebaseInit.js
+│  │      popular.js
+│  │      viewCounter.js
+│  │      
+│  └─videos
+│          screen-recording.mp4
+│          Screenrecording1.mp4
+│          ScreenRecording_07-20-2025 12-08-25_1.mov
+│          
+├─categories
+│      Arduino.md
+│      category.html
+│      Electronics.md
+│      Math.md
+│      
+├─images
+│      A deep blue night sk.png
+│      bg.jpeg
+│      szru1-rocxt-001.ico
+│      
+├─layouts
+│      category.html
+│      default.html
+│      post.html
+│      tags.html
+│      
+├─tags
+│      Arduino.md
+│      Calculus.md
+│      Circuits.md
+│      Electronics.md
+│      index.md
+│      Limits.md
+│      Math.md
+│      
+├─_includes
+│      footer.html
+│      header.html
+│      post-style.html
+│      tagcloud.html
+│      
+├─_plugins
+│      tag_generator.rb
+│      
+├─_posts
+│      2025-07-16-arduino-binary.md
+│      2025-07-16-arduino-buzzer.md
+│      2025-07-16-calculus-limit.html
+│      2025-07-16-circuits-series-parallel.md
+│      
+├─_scripts
+│      generate_tags.py
+│      
+└─_site
+    │  404.html
+    │  bundle
+    │  desktop.ini
+    │  diff_commits.ps1
+    │  diff_commits.sh
+    │  empty.txt
+    │  feed.xml
+    │  generate_categories.py
+    │  generate_tags.rb
+    │  index.html
+    │  push.bat
+    │  start_server.bat
+    │  
+    ├─about
+    │      index.html
+    │      
+    ├─arduino
+    │  ├─arduino-buzzer
+    │  │      index.html
+    │  │      
+    │  └─math
+    │      └─arduino-binary
+    │              index.html
+    │              
+    ├─assets
+    │  │  main.css
+    │  │  main.css.map
+    │  │  minima-social-icons.svg
+    │  │  
+    │  ├─images
+    │  │      20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
+    │  │      A deep blue night sk.png
+    │  │      szru1-rocxt-001.ico
+    │  │      
+    │  ├─js
+    │  │      firebaseInit.js
+    │  │      popular.js
+    │  │      viewCounter.js
+    │  │      
+    │  └─videos
+    │          screen-recording.mp4
+    │          Screenrecording1.mp4
+    │          ScreenRecording_07-20-2025 12-08-25_1.mov
+    │          
+    ├─calculus-limit
+    │      index.html
+    │      
+    ├─categories
+    │  ├─Arduino
+    │  │      index.html
+    │  │      
+    │  ├─category
+    │  │      index.html
+    │  │      
+    │  ├─Electronics
+    │  │      index.html
+    │  │      
+    │  └─Math
+    │          index.html
+    │          
+    ├─electronics
+    │  └─circuits-series-parallel
+    │          index.html
+    │          
+    ├─images
+    │      A deep blue night sk.png
+    │      bg.jpeg
+    │      szru1-rocxt-001.ico
+    │      
+    ├─layouts
+    │  │  default.html
+    │  │  post.html
+    │  │  
+    │  ├─category
+    │  │      index.html
+    │  │      
+    │  └─tags
+    │          index.html
+    │          
+    ├─tags
+    │  │  index.html
+    │  │  
+    │  ├─Arduino
+    │  │      index.html
+    │  │      
+    │  ├─Calculus
+    │  │      index.html
+    │  │      
+    │  ├─Circuits
+    │  │      index.html
+    │  │      
+    │  ├─Electronics
+    │  │      index.html
+    │  │      
+    │  ├─Limits
+    │  │      index.html
+    │  │      
+    │  ├─Math
+    │  │      index.html
+    │  │      
+    │  ├─微積分
+    │  │      index.html
+    │  │      
+    │  └─數學
+    │          index.html
+    │          
+    └─tags_debug
+            index.html
+            

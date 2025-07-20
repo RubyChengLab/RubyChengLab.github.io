@@ -5,94 +5,72 @@
   <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- MathJax 設定 -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-      }
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
   <style>
+    /* 背景設定 */
     body {
-      background: url('{{ site.background }}') no-repeat center center fixed;
+      background-image: url('https://rubychenglab.github.io/images/bg.jpeg'); /* 這裡換成你的圖片路徑 */
       background-size: cover;
-      margin: 0;
-      font-family: 'Arial', sans-serif;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
-    .post-wrapper {
-      max-width: 900px;
-      margin: 80px auto;
-      background: rgba(255, 255, 255, 0.92);
-      padding: 48px;
+    .content-container {
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      padding: 60px;
+      margin: 160px auto;
+      max-width: 960px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2a2a2a;
     }
+
     .post-title {
+      font-size: 2.2rem;
+      font-weight: bold;
       margin-top: 0;
+      color: #2a2a2a;
     }
+
+    .post-date, .post-tags {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .post-content {
+      line-height: 1.7;
+      font-size: 1.05rem;
+      color: #2a2a2a;
+    }
+
     a {
       color: #0066cc;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
-<body>
+  <body>
 
-<div class="post-wrapper">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <p class="post-date">📅 {{ page.date | date: "%Y-%m-%d" }}</p>
+    <div class="content-container">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-date">📅 {{ page.date | date: "%Y-%m-%d" }}</p>
 
-  <div class="post-content">
-    {{ content }}
-  </div>
+      <div class="post-content">
+        {{ content }}
+      </div>
 
-  {% if page.tags %}
-  <p class="post-tags">🏷️ Tags：
-    {% for tag in page.tags %}
-      <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-    {% endfor %}
-  </p>
-  {% endif %}
+      {% if page.tags %}
+      <p class="post-tags">🏷️ Tags:
+        {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </p>
+      {% endif %}
+    </div>
 
-  <p class="post-views">👁️ 瀏覽次數：<span id="view-count">載入中...</span></p>
-</div>
-
-<!-- Firebase 瀏覽次數 -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getFirestore, doc, getDoc, updateDoc, increment, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-
-const app = initializeApp({
-  apiKey: "...",
-  authDomain: "...",
-  projectId: "...",
-});
-
-const db = getFirestore(app);
-
-async function countView() {
-  const id = location.pathname.replace(/\//g, "_") || "index";
-  const ref = doc(db, "posts", id);
-  try {
-    await updateDoc(ref, { views: increment(1) });
-  } catch {
-    await setDoc(ref, { views: 1 });
-  }
-  const snap = await getDoc(ref);
-  if (snap.exists()) {
-    document.getElementById("view-count").innerText = snap.data().views;
-  }
-}
-countView();
-</script>
-
-</body>
+  </body>
 </html>

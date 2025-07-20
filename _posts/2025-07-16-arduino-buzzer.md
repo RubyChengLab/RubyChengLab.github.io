@@ -2,7 +2,7 @@
 layout: post
 title: "[Arduino教學] 蜂鳴器播放聲音"
 date: 2025-07-16
-bg: /images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg
+bg: /images/bg.jpeg
 tags: [Arduino]
 categories: [Arduino]
 ---

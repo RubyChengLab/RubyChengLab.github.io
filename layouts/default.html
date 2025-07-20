@@ -1,6 +1,59 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 {% if page.mathjax %}
+  <style>
+    /* 背景設定 */
+    body {
+      background-image: url('https://rubychenglab.github.io/images/bg.jpeg'); /* 這裡換成你的圖片路徑 */
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    .post {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .content-container {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      padding: 40px;
+      margin: 140px auto 0 auto;
+      max-width: 960px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2a2a2a;
+    }
+
+    .post-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-top: 0;
+      color: #2a2a2a;
+    }
+
+    .post-date, .post-tags {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .post-content {
+      line-height: 1.7;
+      font-size: 1.05rem;
+      color: #2a2a2a;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {% endif %}
 <head>

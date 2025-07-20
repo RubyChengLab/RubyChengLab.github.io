@@ -13,7 +13,8 @@ highlighter: rouge
 kramdown:
   math_engine: mathjax
   input: GFM
-
+include:
+  - images
 theme: minima
 
 plugins:
