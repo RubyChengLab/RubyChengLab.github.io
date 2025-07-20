@@ -24,14 +24,9 @@ $$
 ### 🔌 並聯（Parallel）
 
 電路示意圖：
-<iframe 
-  width="560" 
-  height="315" 
-  src="https://drive.google.com/file/d/1pjLgZ9Trb-Pye3l75nmg-3ZOSL9jfl6X/view?usp=drive_link" 
-  frameborder="0" 
-  allow="autoplay; encrypted-media" 
-  allowfullscreen>
-</iframe>
+<video autoplay loop muted playsinline style="max-width: 100%;">
+  <source src="/assets/videos/screen-recording.mp4" type="video/mp4">
+</video>
 
 總電阻計算公式：
 
