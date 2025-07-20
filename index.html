@@ -3,227 +3,94 @@ layout: default
 title: Falling Comet Lab
 ---
 
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Falling Comet Lab</title>
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <style>
-    body {
-      background-image: url('https://rubychenglab.github.io/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #2a2a2a;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-      border-bottom: 1px solid #ddd;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      z-index: 100;
-    }
-    .header-left {
-      display: flex;
-      align-items: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    #search-input {
-      padding: 5px 10px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .content-container {
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 12px;
-      padding: 40px;
-      margin: 120px auto 60px auto;
-      max-width: 960px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-    .header-right a:hover {
-      text-decoration: underline;
-      color: #4a90e2;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="header-left">🌠 Falling Comet Lab</div>
-  <div class="header-right">
-    <nav>
-      <a href="/arduino/" style="margin-right: 12px; color: #2a2a2a; text-decoration: none;">Arduino</a>
-      <a href="/math/" style="margin-right: 12px; color: #2a2a2a; text-decoration: none;">Math</a>
-      <a href="/electronics/" style="margin-right: 12px; color: #2a2a2a; text-decoration: none;">Electronics</a>
-      <a href="/about/" style="margin-right: 20px; color: #2a2a2a; text-decoration: none;">關於我</a>
-    </nav>
-    <input id="search-input" type="text" placeholder="輸入關鍵字搜尋文章">
-  </div>
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: #fff; border-bottom: 1px solid #ddd; box-shadow: 0 2px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
+  <h1 style="margin: 0; font-size: 1.8rem; font-weight: bold;">🌠 Falling Comet Lab</h1>
+  <nav style="display: flex; gap: 1.2rem;">
+    <a href="/categories/Arduino/" style="text-decoration: none; color: #2a2a2a;">Arduino</a>
+    <a href="/categories/Math/" style="text-decoration: none; color: #2a2a2a;">Math</a>
+    <a href="/categories/Electronics/" style="text-decoration: none; color: #2a2a2a;">Electronics</a>
+    <a href="/about/" style="text-decoration: none; color: #2a2a2a;">關於我</a>
+  </nav>
 </header>
 
-<div class="content-container">
-  <ul id="search-results"></ul>
+<div class="content-container" style="max-width: 900px; margin: 40px auto; padding: 20px; background: rgba(255,255,255,0.9); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
+
+  <h2>🔎 搜尋文章</h2>
+  <input id="search-input" type="text" placeholder="輸入關鍵字搜尋文章" style="width:100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+  <ul id="search-results" style="margin-top: 1em; padding-left: 1.2em;"></ul>
 
   <h2>🔧 最新文章</h2>
   <ul>
     {% for post in site.posts limit:5 %}
-      <li>
-        <a href="{{ post.url }}" style="color: #4a90e2; font-weight: 600;">{{ post.title }}</a>
-        <small style="color: #666;">({{ post.date | date: "%Y-%m-%d" }})</small>
-        {% if post.categories.size > 0 %}
-          <em style="color: #999;">— 分類: {{ post.categories | join: ', ' }}</em>
-        {% endif %}
-      </li>
+      <li><a href="{{ post.url | relative_url }}" style="color: #4a90e2;">{{ post.title }}</a> <small>({{ post.date | date: "%Y-%m-%d" }})</small></li>
     {% endfor %}
   </ul>
 
   <h2>🔥 熱門文章排行</h2>
-  <ul id="popular-posts">
-    <li>載入中...</li>
-  </ul>
+  <ul id="popular-posts"><li>載入中...</li></ul>
 
-  <div id="tag-cloud" style="margin-top: 40px;">
-    <h2>📌 標籤雲</h2>
-    {% assign max_size = 0 %}
-    {% for tag in site.tags %}
-      {% if tag[1].size > max_size %}
-        {% assign max_size = tag[1].size %}
-      {% endif %}
-    {% endfor %}
-    {% for tag in site.tags %}
-      {% assign size = tag[1].size | times: 1.0 %}
-      {% assign font_size = size | divided_by: max_size | times: 120 | plus: 80 %}
-      <a href="/tags/{{ tag[0] }}" style="font-size: {{ font_size | round }}%; margin-right: 0.7rem; text-decoration: none; color: #4a90e2;">{{ tag[0] }}</a>
-    {% endfor %}
-  </div>
+  <h2>📌 標籤雲</h2>
+  {% assign max_size = 0 %}
+  {% for tag in site.tags %}
+    {% if tag[1].size > max_size %}
+      {% assign max_size = tag[1].size %}
+    {% endif %}
+  {% endfor %}
+  {% for tag in site.tags %}
+    {% assign size = tag[1].size | times: 1.0 %}
+    {% assign font_size = size | divided_by: max_size | times: 120 | plus: 80 %}
+    <a href="{{ '/tags/' | append: tag[0] | relative_url }}" style="font-size: {{ font_size | round }}%; margin-right: 0.7rem; color: #4a90e2;">{{ tag[0] }}</a>
+  {% endfor %}
 
-  <div id="view-counter" style="margin-top: 40px; font-size: 1rem; color: #444;"></div>
+  <div id="view-counter" style="margin-top: 20px;"></div>
 </div>
 
-{% include footer.html %}
-
 <script>
+// 搜尋功能
 const posts = [
   {% for post in site.posts %}
-  {
-    title: "{{ post.title | escape }}",
-    url: "{{ post.url }}",
-    content: "{{ post.content | strip_html | strip_newlines | escape }}"
-  },
+    { title: "{{ post.title | escape }}", url: "{{ post.url | relative_url }}", content: "{{ post.content | strip_html | strip_newlines | escape }}" },
   {% endfor %}
 ];
-
-const searchInput = document.getElementById("search-input");
-const searchResults = document.getElementById("search-results");
-
-searchInput.addEventListener("input", () => {
-  const q = searchInput.value.toLowerCase();
-  searchResults.innerHTML = "";
+const input = document.getElementById("search-input"), results = document.getElementById("search-results");
+input.addEventListener("input", () => {
+  const q = input.value.toLowerCase();
+  results.innerHTML = "";
   if (q.length < 2) return;
-
   const filtered = posts.filter(p => p.title.toLowerCase().includes(q) || p.content.toLowerCase().includes(q));
-  if (filtered.length === 0) {
-    searchResults.innerHTML = "<li>找不到符合的文章</li>";
-    return;
-  }
-
-  filtered.forEach(p => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = p.url;
-    a.textContent = p.title;
-    a.style.color = "#2a2a2a";
-    a.style.textDecoration = "none";
-    a.onmouseover = () => a.style.textDecoration = "underline";
-    a.onmouseout = () => a.style.textDecoration = "none";
-    li.appendChild(a);
-    searchResults.appendChild(li);
-  });
+  results.innerHTML = filtered.length ? filtered.map(p => `<li><a href="${p.url}" style="color:#2a2a2a;">${p.title}</a></li>`).join('') : "<li>找不到符合的文章</li>";
 });
 </script>
 
 <script type="module">
+// Firebase 瀏覽次數 + 熱門文章
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getFirestore, collection, query, orderBy, limit, getDocs, doc, updateDoc, increment, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBmR7K4ECZA0Vv0Plh6dMxg5P06UsBnq0",
-  authDomain: "falling-comet-lab-blog.firebaseapp.com",
-  projectId: "falling-comet-lab-blog",
-  storageBucket: "falling-comet-lab-blog.appspot.com",
-  messagingSenderId: "275403715950",
-  appId: "1:275403715950:web:25383ec082d6ff3338bd7f",
-  measurementId: "G-TRDSPMNYQK"
+  apiKey: "你的 API KEY",
+  authDomain: "你的 DOMAIN",
+  projectId: "你的 PROJECT ID",
 };
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function loadPopularPosts() {
-  const popularPostsEl = document.getElementById("popular-posts");
+async function loadPopular() {
+  const el = document.getElementById("popular-posts");
   const q = query(collection(db, "posts"), orderBy("views", "desc"), limit(5));
-  const querySnapshot = await getDocs(q);
-
-  popularPostsEl.innerHTML = "";
-
-  querySnapshot.forEach(docSnap => {
-    const data = docSnap.data();
-    const id = docSnap.id.replace(/_/g, "/");
-    const title = data.title || id;
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = id === "index" ? "/" : id;
-    a.textContent = `${title}（瀏覽: ${data.views || 0}）`;
-    a.style.color = "#4a90e2";
-    a.style.textDecoration = "none";
-    a.onmouseover = () => a.style.textDecoration = "underline";
-    a.onmouseout = () => a.style.textDecoration = "none";
-    li.appendChild(a);
-    popularPostsEl.appendChild(li);
+  const snap = await getDocs(q);
+  el.innerHTML = snap.empty ? "<li>還沒有熱門文章喔！</li>" : "";
+  snap.forEach(docSnap => {
+    const d = docSnap.data(), id = docSnap.id.replace(/_/g,"/");
+    el.innerHTML += `<li><a href="${id}" style="color:#4a90e2;">${d.title || id}（瀏覽:${d.views || 0}）</a></li>`;
   });
-
-  if (querySnapshot.empty) {
-    popularPostsEl.innerHTML = "<li>還沒有熱門文章喔！</li>";
-  }
 }
-
 async function countView() {
-  const pagePath = location.pathname.replace(/\//g, "_") || "index";
-  const postRef = doc(db, "posts", pagePath);
-
-  try {
-    await updateDoc(postRef, { views: increment(1) });
-  } catch {
-    await setDoc(postRef, { views: 1 });
-  }
-
-  const postSnap = await getDoc(postRef);
-  if (postSnap.exists()) {
-    document.getElementById("view-counter").innerHTML = `👁️ 本頁瀏覽次數：${postSnap.data().views}`;
-  }
+  const page = location.pathname.replace(/\//g,"_") || "index";
+  const ref = doc(db, "posts", page);
+  try { await updateDoc(ref, { views: increment(1) }); } catch { await setDoc(ref, { views: 1 }); }
+  const snap = await getDoc(ref);
+  if (snap.exists()) document.getElementById("view-counter").innerText = `👁️ 本頁瀏覽次數：${snap.data().views}`;
 }
-
-loadPopularPosts();
-countView();
+loadPopular(); countView();
 </script>
-
-</body>
-</html>
