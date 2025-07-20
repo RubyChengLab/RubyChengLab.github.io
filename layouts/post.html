@@ -3,7 +3,7 @@
 // 初始化 Firestore
 import { getFirestore, doc, getDoc, updateDoc, increment } from "firebase/firestore";
 const db = getFirestore();
-
+{% include header.html %}
 // 每次載入文章時執行
 async function incrementViewCount(slug) {
   const ref = doc(db, "posts", slug);
@@ -19,7 +19,7 @@ async function getViewCount(slug) {
 }
 
 {% include post-style.html %}
-{% include header.html %}
+
 
   <main class="site-content">
     <article class="content-wrapper">
