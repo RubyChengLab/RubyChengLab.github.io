@@ -9,32 +9,69 @@
       background: url('/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg') no-repeat center center fixed;
       background-size: cover;
       margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
-    main {
-      max-width: 960px;
-      margin: 100px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
+
     header {
-      display:flex; justify-content:space-between; align-items:center;
-      background:white; padding:16px 24px; border-bottom:1px solid #ddd;
-      position:sticky; top:0; z-index:100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 16px 24px;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-    header .title { font-size:1.8rem; font-weight:bold; white-space:nowrap; }
-    nav a { margin-left:16px; text-decoration:none; color:#333; font-weight:500; }
-    nav a:hover { color:#0077ff; }
-    main { max-width:800px; margin:40px auto; padding:0 24px; }
+
+    .title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav a {
+      margin-left: 16px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #0077ff;
+    }
+
+    .post-wrapper {
+      max-width: 900px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 48px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
     a { color: #0077ff; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
+
+<header>
+  <h1 class="title">🌠 Falling Comet Lab</h1>
+  <nav>
+    <a href="/categories/Arduino/">Arduino</a>
+    <a href="/categories/Math/">Math</a>
+    <a href="/categories/Electronics/">Electronics</a>
+    <a href="/about/">關於我</a>
+  </nav>
+</header>
+
 <main>
-  
-  {{ content }}
+  <div class="post-wrapper">
+    {{ content }}
+  </div>
 </main>
+
 </body>
 </html>
