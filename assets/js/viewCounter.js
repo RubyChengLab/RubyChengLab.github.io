@@ -18,6 +18,9 @@ const db = getFirestore(app);
 const rawPath = location.pathname;
 const path = rawPath === "/" ? "index" : rawPath.replace(/\//g, "_");
 const docRef = doc(db, "posts", path);
+if (!getApps().length) {
+  initializeApp(firebaseConfig);
+}
 
 function animateCount(start, end, duration, element) {
   let startTimestamp = null;
