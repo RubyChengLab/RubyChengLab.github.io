@@ -18,10 +18,14 @@ permalink: /categories/Arduino/
     text-decoration: underline;
   }
 </style>
-<h1>分類：Arduino</h1>
+<h1>分類：{{ page.category }}</h1>
 
 <ul>
-  {% for post in site.categories.Arduino %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% assign posts_in_category = site.categories[page.category] %}
+  {% for post in posts_in_category %}
+    <li>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      <small>({{ post.date | date: "%Y-%m-%d" }})</small>
+    </li>
   {% endfor %}
 </ul>
