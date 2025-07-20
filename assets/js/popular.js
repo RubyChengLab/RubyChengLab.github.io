@@ -17,5 +17,3 @@ const firebaseConfig = {
 if (!getApps().length) {
   initializeApp(firebaseConfig);
 }
-
-const db = getFirestore();

@@ -15,7 +15,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+
 
 const rawPath = location.pathname;
 const path = rawPath === "/" ? "index" : rawPath.replace(/\//g, "_");
