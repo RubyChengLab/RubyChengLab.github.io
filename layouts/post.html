@@ -2,98 +2,43 @@
 layout: default
 ---
 
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
-  {% include head.html %}
-  <style>
-    body {
-  background: url('/images/20efc85c275d9dcb694f84c6dd2d5378_t.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  margin: 0;
-}
+<div class="post-wrapper">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <p class="post-date">{{ page.date | date: "%Y-%m-%d" }}</p>
+  <div class="post-content">{{ content }}</div>
+  <p class="post-views">👁️ 瀏覽次數：<span id="view-count">載入中...</span></p>
 
-.post-wrapper {
-  max-width: 900px;
-  margin: 80px auto;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 48px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-    .post-title {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .post-date {
-      color: #666;
-      font-size: 0.95rem;
-      margin-bottom: 24px;
-    }
-
-    .post-content {
-      font-size: 1.15rem;
-      line-height: 1.9;
-    }
-
-    .post-content img {
-      display: block;
-      max-width: 100%;
-      margin: 24px auto;
-      border-radius: 10px;
-    }
-
-    .post-views {
-      margin-top: 24px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  {% include header.html %}
-  <div class="post-wrapper">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-date">{{ page.date | date: "%Y-%m-%d" }}</p>
-    <div class="post-content">{{ content }}</div>
-    <p class="post-views">👁️ 瀏覽次數：<span id="view-count">載入中...</span></p>
-
-    {% if page.tags %}
-    <p class="post-tags">
-      🏷️ Tags:
+  {% if page.tags %}
+    <p class="post-tags">🏷️ Tags:
       {% for tag in page.tags %}
-      <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
       {% endfor %}
     </p>
-    {% endif %}
-  </div>
+  {% endif %}
+</div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getFirestore, doc, getDoc, updateDoc, increment, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+<script type="module">
+// firebase 初始化
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getFirestore, doc, getDoc, updateDoc, increment, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-    const app = initializeApp({
-      apiKey: "...",
-      authDomain: "...",
-      projectId: "...",
-    });
-    const db = getFirestore(app);
+const app = initializeApp({
+  apiKey: "...",
+  authDomain: "...",
+  projectId: "...",
+});
+const db = getFirestore(app);
 
-    async function countView() {
-      const id = location.pathname.replace(/\//g, "_") || "index";
-      const ref = doc(db, "posts", id);
-      try { await updateDoc(ref, { views: increment(1) }); } 
-      catch { await setDoc(ref, { views: 1 }); }
-      const snap = await getDoc(ref);
-      if (snap.exists()) {
-        document.getElementById("view-count").innerText = snap.data().views;
-      }
-    }
-
-    countView();
-  </script>
-</body>
-</html>
+// 瀏覽次數
+async function countView() {
+  const id = location.pathname.replace(/\//g, "_") || "index";
+  const ref = doc(db, "posts", id);
+  try { await updateDoc(ref, { views: increment(1) }); } 
+  catch { await setDoc(ref, { views: 1 }); }
+  const snap = await getDoc(ref);
+  if (snap.exists()) {
+    document.getElementById("view-count").innerText = snap.data().views;
+  }
+}
+countView();
+</script>

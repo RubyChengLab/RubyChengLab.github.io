@@ -1,3 +1,21 @@
+<style>
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .search-box {
+    width: 100%;
+  }
+}
+</style>
+
 <header style="
   display: flex;
   justify-content: space-between;
@@ -17,7 +35,7 @@
     🌠 Falling Comet Lab
   </h1>
 
-  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; width: 100%; justify-content: flex-end;">
 
     <nav>
       <ul style="list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; font-size: 1rem;">
@@ -28,7 +46,7 @@
       </ul>
     </nav>
 
-    <div style="display: flex; flex-direction: column; min-width: 260px;">
+    <div class="search-box" style="display: flex; flex-direction: column; min-width: 260px; flex: 1;">
       <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章" style="
         width: 100%;
         padding: 0.5em 0.7em;
@@ -52,5 +70,4 @@
     </div>
 
   </div>
-
 </header>
