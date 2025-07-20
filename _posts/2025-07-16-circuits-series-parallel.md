@@ -37,7 +37,7 @@ $$
 $$
 電路示意圖：
 <video autoplay loop muted playsinline style="max-width: 100%;">
-  <source src="/assets/videos/screen-recording1.mp4" type="video/mp4">
+  <source src="/assets/videos/Screenrecording1.mp4" type="video/mp4">
 </video>
 ---
 
