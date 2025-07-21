@@ -34,8 +34,6 @@ title: Falling Comet Lab
       </ul>
     </section>
 
-    <div id="view-counter" style="margin-top:24px; text-align:center; font-weight:bold;"></div>
-
     <section>
       <h3>🏷️ Tags</h3>
       {% for tag in site.tags %}
@@ -44,12 +42,16 @@ title: Falling Comet Lab
       </a>
       {% endfor %}
     </section>
+
+    <!-- 👁️ 瀏覽次數塞在這裡 -->
+    <div id="view-counter" style="margin-top:24px; text-align:center; font-weight:bold;"></div>
+
   </div>
 </body>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getFirestore, collection, query, orderBy, limit, getDocs, doc, updateDoc, increment, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { getFirestore, doc, updateDoc, increment, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 const app = initializeApp({
   apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
@@ -64,7 +66,6 @@ const app = initializeApp({
 
 const db = getFirestore(app);
 
-// 計數器：紀錄本頁次數
 async function countView() {
   const id = location.pathname.replace(/\//g, "_") || "index";
   const ref = doc(db, "posts", id);
