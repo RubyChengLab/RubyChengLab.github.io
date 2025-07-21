@@ -2,91 +2,83 @@
 layout: default
 title: Falling Comet Lab
 ---
+
 <style>
-    body {
-      background-image: url('{{ "/images/bg.jpeg" | relative_url }}'); /* 這裡換成你的圖片路徑 */
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-    }
-    .content-container {
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 12px;
-      padding: 40px;
-      margin: 140px auto 0 auto;
-      max-width: 960px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #2a2a2a;
-    }
-  </style>
+  body {
+    background-image: url('{{ "/images/bg.jpeg" | relative_url }}');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 140px auto 0 auto;
+    max-width: 960px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2a2a2a;
+  }
+</style>
+
 <body>
   <div class="content-container">
     <section>
-    <h2>📌  最新文章</h2>
-    <ul>
-    {% for post in site.posts limit:5 %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
-    {% endfor %}
-    </ul>
+      <h2>📌 最新文章</h2>
+      <ul>
+        {% for post in site.posts limit:5 %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <div id="view-counter" style="margin-top:24px; text-align:center; font-weight:bold;"></div>
+
+    <section>
+      <h3>🏷️ Tags</h3>
+      {% for tag in site.tags %}
+      <a href="/tags/{{ tag[0] }}" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        {{ tag[0] }}
+      </a>
+      {% endfor %}
     </section>
   </div>
 </body>
-<div id="view-counter" style="margin-top:24px;"></div>
-<footer style="text-align:center; margin-top:40px;">
-  <h3 style="font-size:1.2rem; color:#666;">🏷️ Tags</h3>
-  {% for tag in site.tags %}
-  <a href="/tags/{{ tag[0] }}" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
-    {{ tag[0] }}
-  </a>
-  {% endfor %}
-</footer>
-<script>
-const posts = [
-{% for post in site.posts %}
-{ title: "{{ post.title | escape }}", url: "{{ post.url }}" },
-{% endfor %}
-];
-document.getElementById("search-input").addEventListener("input", function () {
-  const q = this.value.toLowerCase();
-  const results = posts.filter(p => p.title.toLowerCase().includes(q));
-  const container = document.getElementById("search-results");
-  container.innerHTML = q.length < 2 ? '' : results.map(p => `<li><a href="${p.url}">${p.title}</a></li>`).join('') || '<li>找不到文章</li>';
-});
-</script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getFirestore, collection, query, orderBy, limit, getDocs, doc, updateDoc, increment, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 const app = initializeApp({
-  apiKey: "...",
-  authDomain: "...",
-  projectId: "...",
+  apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
+  authDomain: "falling-comet-lab-blog.firebaseapp.com",
+  databaseURL: "https://falling-comet-lab-blog-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "falling-comet-lab-blog",
+  storageBucket: "falling-comet-lab-blog.firebasestorage.app",
+  messagingSenderId: "275403715950",
+  appId: "1:275403715950:web:25383ec082d6ff3338bd7f",
+  measurementId: "G-TRDSPMNYQK"
 });
+
 const db = getFirestore(app);
 
-async function loadPopular() {
-  const q = query(collection(db, "posts"), orderBy("views", "desc"), limit(5));
-  const querySnapshot = await getDocs(q);
-  const container = document.getElementById("popular-posts");
-  container.innerHTML = "";
-  querySnapshot.forEach(docSnap => {
-    const data = docSnap.data();
-    const link = docSnap.id.replace(/_/g, "/");
-    container.innerHTML += `<li><a href="${link}">${data.title || link} (${data.views}次瀏覽)</a></li>`;
-  });
-}
-
+// 計數器：紀錄本頁次數
 async function countView() {
   const id = location.pathname.replace(/\//g, "_") || "index";
   const ref = doc(db, "posts", id);
-  try { await updateDoc(ref, { views: increment(1) }); } catch { await setDoc(ref, { views: 1 }); }
+  try {
+    await updateDoc(ref, { views: increment(1) });
+  } catch {
+    await setDoc(ref, { views: 1 });
+  }
   const snap = await getDoc(ref);
-  if (snap.exists()) document.getElementById("view-counter").innerText = `👁️ 本頁瀏覽次數：${snap.data().views}`;
+  if (snap.exists()) {
+    document.getElementById("view-counter").innerText =
+      `👁️ 瀏覽次數：${snap.data().views} 次`;
+  }
 }
 
-loadPopular();
 countView();
 </script>
