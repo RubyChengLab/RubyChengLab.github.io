@@ -2,18 +2,45 @@
 layout: default
 ---
 
-<h1>標籤：{{ page.tag }}</h1>
+<style>
+  body {
+    background-image: url('{{ "/images/bg.jpeg" | relative_url }}');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .tag-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 960px;
+    margin: 120px auto;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  ul {
+    font-size: 20px;
+  }
+  a {
+    color: #512da8;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
 
-<ul>
-  {% assign posts_in_tag = site.tags[page.tag] %}
-  {% if posts_in_tag %}
-    {% for post in posts_in_tag %}
-      <li>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-        <small>({{ post.date | date: "%Y-%m-%d" }})</small>
-      </li>
+<div class="tag-container">
+  <h1>#{{ page.tag }}</h1>
+  <ul>
+    {% for post in site.tags[page.tag] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
-  {% else %}
-    <li><em>這個標籤目前沒有文章喔！</em></li>
-  {% endif %}
-</ul>
+  </ul>
+</div>
