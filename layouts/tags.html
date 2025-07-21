@@ -9,34 +9,20 @@ layout: default
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  .tag-container {
-    background-color: rgba(255, 255, 255, 0.9);
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 140px auto 0 auto;
     max-width: 960px;
-    margin: 120px auto;
-    padding: 50px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-  h1 {
-    font-size: 48px;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  ul {
-    font-size: 20px;
-  }
-  a {
-    color: #512da8;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2a2a2a;
   }
 </style>
 
-<div class="tag-container">
+<div class="content-container">
   <h1>#{{ page.tag }}</h1>
   <ul>
     {% for post in site.tags[page.tag] %}
