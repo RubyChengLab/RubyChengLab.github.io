@@ -3,7 +3,6 @@ description: Arduino x 數學教學
 baseurl: ""
 url: "https://RubyChengLab.github.io"
 permalink: /:categories/:title/
-twitter_username: yourTwitter
 github_username: RubyChengLab
 email: fallingcometlab@gmail.com
 
