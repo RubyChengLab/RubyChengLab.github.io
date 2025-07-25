@@ -46,15 +46,6 @@ title: Falling Comet Lab
         {% endfor %}
       </ul>
     </section>
-
-    <section>
-      <h3>🏷️ Tags</h3>
-      {% for tag in site.tags %}
-      <a href="/tags/{{ tag[0] }}" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
-        {{ tag[0] }}
-      </a>
-      {% endfor %}
-    </section>
     <section class="timeline">
       {% for post in site.posts %}
         {% if post.tags contains "timeline" %}
@@ -67,6 +58,14 @@ title: Falling Comet Lab
             </div>
           </div>
         {% endif %}
+      {% endfor %}
+    </section>
+    <section>
+      <h3>🏷️ Tags</h3>
+      {% for tag in site.tags %}
+      <a href="/tags/{{ tag[0] }}" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        {{ tag[0] }}
+      </a>
       {% endfor %}
     </section>
     <!-- 👁️ 瀏覽次數塞在這裡 -->
