@@ -5,6 +5,7 @@ title: Falling Comet Lab
 
 <style>
   body {
+    background: transparent; /* 加這行 */
     background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
     background-size: cover;
     background-position: center center;
@@ -29,6 +30,7 @@ title: Falling Comet Lab
   }
 </style>
 <head>
+  <link rel="stylesheet" href="/assets/css/timeline.css" />
   <link rel="icon" href="{{ '/images/szru1-rocxt-001.ico' | relative_url }}" type="image/x-icon">
 </head>
 <body>
@@ -55,6 +57,55 @@ title: Falling Comet Lab
     <div id="view-counter" style="margin-top:24px; text-align:center; font-weight:bold;"></div>
 
   </div>
+  <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+  <script type="module">
+  import * as THREE from 'https://cdn.skypack.dev/three';
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(
+    75, window.innerWidth / window.innerHeight, 0.1, 1000
+  );
+  camera.position.z = 5;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById("bg-canvas"),
+    alpha: true,
+    antialias: true
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  const starGeometry = new THREE.BufferGeometry();
+  const starCount = 1000;
+  const positions = [];
+
+  for (let i = 0; i < starCount; i++) {
+    positions.push((Math.random() - 0.5) * 200);
+    positions.push((Math.random() - 0.5) * 200);
+    positions.push((Math.random() - 0.5) * 200);
+  }
+  starGeometry.setAttribute(
+    'position',
+    new THREE.Float32BufferAttribute(positions, 3)
+  );
+
+  const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+  const starField = new THREE.Points(starGeometry, starMaterial);
+  scene.add(starField);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    starField.rotation.y += 0.0005;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+  </script>
 </body>
 
 <script type="module">
@@ -71,7 +122,20 @@ const app = initializeApp({
   appId: "1:275403715950:web:25383ec082d6ff3338bd7f",
   measurementId: "G-TRDSPMNYQK"
 });
-
+<section class="timeline">
+  {% for post in site.posts %}
+    {% if post.tags contains "timeline" %}
+      <div class="timeline-entry">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+          <div class="timeline-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
+          <div class="timeline-summary">{{ post.excerpt }}</div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
 const db = getFirestore(app);
 
 async function countView() {

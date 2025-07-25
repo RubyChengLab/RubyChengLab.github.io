@@ -1,7 +1,7 @@
 @echo off
 echo 正在將網站推送到 GitHub... (autonew)
 
-cd /d "C:\Users\Ruby\myblog"
+cd /d "D:\Projects\myblog"
 
 git add .
 git commit -m "Automatic updates %date% %time%"
