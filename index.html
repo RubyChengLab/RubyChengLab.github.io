@@ -54,9 +54,6 @@ title: Falling Comet Lab
       </a>
       {% endfor %}
     </section>
-
-    <!-- 👁️ 瀏覽次數塞在這裡 -->
-    <div id="view-counter" style="margin-top:24px; text-align:center; font-weight:bold;"></div>
     <section class="timeline">
       {% for post in site.posts %}
         {% if post.tags contains "timeline" %}
@@ -71,6 +68,8 @@ title: Falling Comet Lab
         {% endif %}
       {% endfor %}
     </section>
+    <!-- 👁️ 瀏覽次數塞在這裡 -->
+    <div id="view-counter" style="margin-top:24px; text-align:center; font-weight:bold;"></div>
   </div>
   <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
   <script type="module">
