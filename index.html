@@ -39,7 +39,9 @@ title: Falling Comet Lab
       <h2>📌 最新文章</h2>
       <ul>
         {% for post in site.posts limit:5 %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
+          {% unless post.tags contains "timeline" %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
+          {% endunless %}
         {% endfor %}
       </ul>
     </section>
@@ -55,7 +57,20 @@ title: Falling Comet Lab
 
     <!-- 👁️ 瀏覽次數塞在這裡 -->
     <div id="view-counter" style="margin-top:24px; text-align:center; font-weight:bold;"></div>
-
+    <section class="timeline">
+      {% for post in site.posts %}
+        {% if post.tags contains "timeline" %}
+          <div class="timeline-entry">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+              <div class="timeline-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
+              <div class="timeline-summary">{{ post.excerpt }}</div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </section>
   </div>
   <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
   <script type="module">
@@ -122,21 +137,7 @@ const app = initializeApp({
   appId: "1:275403715950:web:25383ec082d6ff3338bd7f",
   measurementId: "G-TRDSPMNYQK"
 });
-<section class="timeline">
-  {% for post in site.posts %}
-   <h2>🕒 時間軸測試</h2>
-    {% if post.tags contains "timeline" %}
-      <div class="timeline-entry">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">{{ post.date | date: "%Y-%m-%d" }}</div>
-          <div class="timeline-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
-          <div class="timeline-summary">{{ post.excerpt }}</div>
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
-</section>
+
 const db = getFirestore(app);
 
 async function countView() {
