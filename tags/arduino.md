@@ -3,7 +3,6 @@ layout: tag
 tag: Arduino
 permalink: /tags/Arduino/
 ---
-{% include header.html %}
 <style>
   h1 {
     font-size: 36px; /* 大標題字體 */

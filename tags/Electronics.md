@@ -3,7 +3,6 @@ layout: tag
 tag: Electronics
 permalink: /tags/Electronics/
 ---
-{% include header.html %}
 <style>
   h1 {
     font-size: 36px;
