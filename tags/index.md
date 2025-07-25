@@ -3,7 +3,7 @@ layout: default
 title: "所有標籤"
 permalink: /tags/
 ---
-
+{% include header.html %}
 <h1>所有標籤</h1>
 
 <ul>

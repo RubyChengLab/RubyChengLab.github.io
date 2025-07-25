@@ -3,6 +3,7 @@ layout: tag
 tag: Math
 permalink: /tags/Math/
 ---
+{% include header.html %}
 <style>
   h1 {
     font-size: 36px; /* 大標題字體 */
