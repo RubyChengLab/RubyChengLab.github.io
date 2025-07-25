@@ -18,7 +18,24 @@
     width: 100%;
   }
 }
-
+body {
+    background: transparent; /* 加這行 */
+    background-image: url('{{ "../images/bg.jpeg" | absolute_url }}') !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding-top: 60px; /* 增加空間給 header */
+    margin-top: 150px; /* 或可微調 */
+    max-width: 960px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2a2a2a;
+  }
   section {
     border: 1px solid #eee;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
