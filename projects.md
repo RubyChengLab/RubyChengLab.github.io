@@ -22,7 +22,10 @@ permalink: /projects/
     margin: 3rem auto;
   }
 
-  .project-card {
+  a.project-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -31,7 +34,7 @@ permalink: /projects/
     transition: transform 0.2s;
   }
 
-  .project-card:hover {
+  a.project-card:hover {
     transform: translateY(-4px);
   }
 
@@ -52,59 +55,33 @@ permalink: /projects/
     margin-bottom: 0.5rem;
   }
 
-  .project-links a {
-    margin-right: 1rem;
-    color: #007acc;
-    text-decoration: none;
-  }
 </style>
 
 <div class="content-container">
   <h1>我的專案</h1>
 
-  <div class="project-card">
+  <a href="/projects/six_codes/" class="project-card">
     <div class="project-title">六法全書 Flutter App</div>
     <div class="project-desc">支援離線查詢、書籤筆記、條文搜尋、歷史版本比較等功能的法規查詢工具。</div>
     <div class="tech-stack">技術：Flutter、Dart、Firebase、Python 爬蟲</div>
-    <div class="project-links">
-      <a href="https://github.com/your-repo/six_codes_app" target="_blank">GitHub</a>
-      <a href="#" target="_blank">Demo 頁面</a>
-    </div>
-  </div>
+  </a>
 
-  <div class="project-card">
+  <a href="/projects/ee_app/" class="project-card">
     <div class="project-title">三電一工教學 App</div>
     <div class="project-desc">以章節結構呈現電學與邏輯設計，支援練習題、自動驗算、簡圖動畫與進度追蹤。</div>
     <div class="tech-stack">技術：Python、Streamlit、Manim、LaTeX</div>
-    <div class="project-links">
-      <a href="https://github.com/your-repo/ee_app" target="_blank">GitHub</a>
-    </div>
-  </div>
+  </a>
 
-  <div class="project-card">
-    <div class="project-title">微積分動畫教學</div>
-    <div class="project-desc">高階導數、隱函數微分與參數曲線的可視化動畫，用於數學教學與演示。</div>
-    <div class="tech-stack">技術：Manim、Python、LaTeX</div>
-    <div class="project-links">
-      <a href="https://www.youtube.com/@fallingcometlab" target="_blank">YouTube</a>
-    </div>
-  </div>
-
-  <div class="project-card">
+  <a href="/projects/law_crawler/" class="project-card">
     <div class="project-title">法規爬蟲資料擷取</div>
     <div class="project-desc">完整擷取民法、刑法、民訴等法規內容，包含編章節與條文結構，自動儲存為 JSON。</div>
     <div class="tech-stack">技術：Python、BeautifulSoup、正規表達式</div>
-    <div class="project-links">
-      <a href="https://github.com/your-repo/law-crawler" target="_blank">GitHub</a>
-    </div>
-  </div>
+  </a>
 
-  <div class="project-card">
+  <a href="/projects/flutter_snake/" class="project-card">
     <div class="project-title">Flutter 貪食蛇遊戲</div>
     <div class="project-desc">手機滑動與桌機方向鍵控制皆支援，自適應畫面，具備完整碰撞與得分邏輯。</div>
     <div class="tech-stack">技術：Flutter、Dart、RWD 設計</div>
-    <div class="project-links">
-      <a href="https://github.com/your-repo/flutter_snake" target="_blank">GitHub</a>
-    </div>
-  </div>
+  </a>
+
 </div>
