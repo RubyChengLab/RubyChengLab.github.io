@@ -70,8 +70,7 @@ permalink: /projects/ee_app/
 
     <h3>🔗 相關連結</h3>
     <ul>
-      <li><a href="https://go-big-or-go-home.streamlit.app/" target="_blank">Streamlit App（立即體驗）</a></li>
-      <li><a href="https://github.com/your-repo/ee_app" target="_blank">GitHub 儲存庫</a></li>
+      <li><a href="https://go-big-or-go-home.streamlit.app/" target="_blank">Streamlit App</a></li>
     </ul>
   </div>
 </div>

@@ -82,11 +82,5 @@ permalink: /projects/six_codes/
       <li><strong>後端</strong>：Python、BeautifulSoup、正規表達式</li>
       <li><strong>格式</strong>：JSON 結構儲存所有編、章、節、條文</li>
     </ul>
-
-    <h3>🔗 相關連結</h3>
-    <ul>
-      <li><a href="https://github.com/your-repo/six_codes_app" target="_blank">Flutter App GitHub</a></li>
-      <li><a href="https://github.com/your-repo/law-crawler" target="_blank">法規爬蟲 GitHub</a></li>
-    </ul>
   </div>
 </div>

@@ -66,10 +66,5 @@ permalink: /projects/flutter_snake/
       <li>Flutter + Dart：遊戲邏輯與畫面設計</li>
       <li>RWD 設計：支援多裝置操作</li>
     </ul>
-
-    <h3>🔗 相關連結</h3>
-    <ul>
-      <li><a href="https://github.com/your-repo/flutter_snake" target="_blank">GitHub 儲存庫</a></li>
-    </ul>
   </div>
 </div>
