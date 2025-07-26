@@ -63,55 +63,57 @@
     <title>🌠 Falling Comet Lab</title>
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-      body {
-        background: url('../images/bg.jpeg') no-repeat center center fixed;
-        background-size: cover;
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
+    body {
+      background: transparent;
+      background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      font-family: "Noto Sans TC", sans-serif;
+      line-height: 1.8;
+    }
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: white;
-        padding: 16px 24px;
-        border-bottom: 1px solid #ddd;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      }
+    .content-container {
+      background-color: rgba(255, 255, 255, 0.88);
+      padding: 2.5rem;
+      border-radius: 1.25rem;
+      max-width: 960px;
+      margin: 3rem auto;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
 
-      .title {
-        font-size: 1.8rem;
-        font-weight: bold;
-        white-space: nowrap;
-      }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
 
-      nav a {
-        margin-left: 16px;
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-      }
+    h3 {
+      font-size: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
 
-      nav a:hover {
-        color: #0077ff;
-      }
+    ul {
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-      .post-wrapper {
-        max-width: 900px;
-        margin: 100px auto;
-        background: rgba(255, 255, 255, 0.92);
-        padding: 48px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
 
-      a { color: #0077ff; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-    </style>
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
   </head>
   
     <body>
