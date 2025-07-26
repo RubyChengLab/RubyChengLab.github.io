@@ -19,6 +19,7 @@
       width: 100vw;
       height: 100vh;
       display: block;
+      z-index: 0;
     }
     #clock {
       position: fixed;
@@ -52,10 +53,12 @@
   </style>
 </head>
 <body>
+  {% include header.html %}
   <canvas id="canvas"></canvas>
   <div id="clock"></div>
   <div id="mouse-glow"></div>
   <audio id="bg-music" src="your-music.mp3" autoplay loop></audio>
+  {{ content }}
   <script>
     window.addEventListener('DOMContentLoaded', () => {
     const bgm = document.getElementById('bg-music');
