@@ -12,7 +12,7 @@ permalink: /projects/
     overflow-x: hidden;
   }
 
-  canvas {
+  canvas.webgl-bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -96,7 +96,6 @@ permalink: /projects/
 </style>
 
 <!-- 星空特效區 -->
-<canvas id="canvas"></canvas>
 <div id="clock"></div>
 <div id="mouse-glow"></div>
 <audio id="bg-music" src="/music/your-music.mp3" autoplay loop></audio>
@@ -123,12 +122,16 @@ permalink: /projects/
   </a>
 </div>
 
+<!-- 引入 THREE.js -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+
+<!-- 星空背景 JS -->
 <script>
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
-
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.domElement.classList.add("webgl-bg");
 document.body.appendChild(renderer.domElement);
 
 const starsGeometry = new THREE.BufferGeometry();
@@ -160,9 +163,8 @@ function animate() {
 animate();
 
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
 </script>
