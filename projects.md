@@ -5,15 +5,6 @@ permalink: /projects/
 ---
 
 <style>
-  body {
-    background: transparent;
-    background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-
   .content-container {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 2rem;
