@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<style>
-  body {
-    background: transparent; /* 加這行 */
-    background-image: url('{{ "../images/bg.jpeg" | absolute_url }}') !important;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-  .content-container {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    padding: 40px;
-    margin: 140px auto 0 auto;
-    max-width: 960px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #2a2a2a;
-  }
-  section {
-    border: 1px solid #eee;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    border-radius: 12px;
-    padding: 16px;
-  }
-</style>
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="style" href="/assets/css/style.css" /> 
+  <style>
+    body {
+      background: transparent;
+      background-image: url('{{ "../images/bg.jpeg" | absolute_url }}') !important;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    .content-container {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      padding: 40px;
+      margin: 140px auto 0 auto;
+      max-width: 960px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2a2a2a;
+    }
+    .inner-box {
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid #ddd;
+      border-radius: 10px;
+      padding: 32px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    section {
+      border: 1px solid #eee;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: 16px;
+    }
+  </style>
 </head>
-  <body>
+<body>
 
-    <div class="content-container">
+  <div class="content-container">
+    <div class="inner-box">
       <h1 class="post-title">{{ page.title }}</h1>
       <p class="post-date">📅 {{ page.date | date: "%Y-%m-%d" }}</p>
 
@@ -50,6 +58,7 @@
       </p>
       {% endif %}
     </div>
+  </div>
 
-  </body>
+</body>
 </html>
