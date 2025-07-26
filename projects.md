@@ -71,13 +71,6 @@ permalink: /projects/
     <div class="project-desc">以章節結構呈現電學與邏輯設計，支援練習題、自動驗算、簡圖動畫與進度追蹤。</div>
     <div class="tech-stack">技術：Python、Streamlit、Manim、LaTeX</div>
   </a>
-
-  <a href="/projects/law_crawler/" class="project-card">
-    <div class="project-title">法規爬蟲資料擷取</div>
-    <div class="project-desc">完整擷取民法、刑法、民訴等法規內容，包含編章節與條文結構，自動儲存為 JSON。</div>
-    <div class="tech-stack">技術：Python、BeautifulSoup、正規表達式</div>
-  </a>
-
   <a href="/projects/flutter_snake/" class="project-card">
     <div class="project-title">Flutter 貪食蛇遊戲</div>
     <div class="project-desc">手機滑動與桌機方向鍵控制皆支援，自適應畫面，具備完整碰撞與得分邏輯。</div>
