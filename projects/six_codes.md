@@ -5,6 +5,11 @@ permalink: /projects/six_codes/
 ---
 
 <style>
+  @media screen and (max-width: 600px) {
+    .project-wrapper {
+      padding: 1.5rem 1.25rem;
+    }
+  }
   body {
     background: transparent;
     background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
@@ -18,7 +23,7 @@ permalink: /projects/six_codes/
     background-color: rgba(255, 255, 255, 0.88);
     max-width: 880px;
     margin: 3rem auto;
-    padding: 2rem 2.5rem;
+    padding: 2.5rem 3rem;
     border-radius: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     font-size: 1.1rem;
