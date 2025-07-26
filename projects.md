@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 我的專案
+permalink: /projects/
 ---
 
 <style>
@@ -106,5 +107,4 @@ title: 我的專案
       <a href="https://github.com/your-repo/flutter_snake" target="_blank">GitHub</a>
     </div>
   </div>
-
 </div>

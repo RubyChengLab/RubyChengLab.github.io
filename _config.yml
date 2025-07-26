@@ -14,7 +14,7 @@ kramdown:
   input: GFM
 include:
   - images
-  - projects.html
+  - projects.md
 theme: minima
 
 plugins:
