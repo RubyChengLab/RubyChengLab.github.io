@@ -4,7 +4,7 @@ title: 三電一工教學 App
 permalink: /projects/ee_app/
 ---
 
-<div class="content-container">
+<div class="inner-box">
   <h1>三電一工教學 App</h1>
 
   <p>這個 App 以章節結構呈現電學與邏輯設計，搭配 <strong>練習題、自動驗算、簡圖動畫、進度追蹤</strong>，幫助學生深入理解三電一工。</p>

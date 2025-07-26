@@ -4,7 +4,7 @@ title: Flutter 貪食蛇遊戲
 permalink: /projects/flutter_snake/
 ---
 
-<div class="content-container">
+<div class="inner-box">
   <h1>Flutter 貪食蛇遊戲</h1>
 
   <p>支援 <strong>手機滑動 + 桌機方向鍵</strong> 操作，具備 <strong>完整碰撞與得分邏輯</strong>，並能根據裝置尺寸自適應畫面。</p>

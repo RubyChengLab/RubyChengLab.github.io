@@ -4,7 +4,7 @@ title: 六法全書 Flutter App
 permalink: /projects/six_codes/
 ---
 
-<div class="content-container">
+<div class="inner-box">
   <h1>六法全書 Flutter App + 法規爬蟲</h1>
 
   <p>這是一個完整的法規查詢系統，由 <strong>法規爬蟲後端</strong> 與 <strong>Flutter App 前端</strong> 組成，支援使用者離線查詢、書籤筆記、條文搜尋、歷史版本比較等功能。</p>

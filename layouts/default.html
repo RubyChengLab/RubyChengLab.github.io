@@ -82,7 +82,13 @@
       margin: 3rem auto;
       box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
-
+    .inner-box {
+      background: rgba(255, 255, 255, 0.5); /* 半透明白色 */
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
     h1 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
@@ -132,7 +138,7 @@
       </header>
 
       <main>
-        <div class="post-wrapper">
+        <div class="content-container">
           {{ content }}
         </div>
       </main>
