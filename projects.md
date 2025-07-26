@@ -1,64 +1,25 @@
 ---
-layout: default
+layout: star_layout
 title: 我的專案
 permalink: /projects/
 ---
 
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: black;
-    overflow-x: hidden;
-  }
-
-  canvas.webgl-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    display: block;
-  }
-
-  #clock {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border: 2px solid rgba(255,255,255,0.2);
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 1000;
-  }
-
-  #mouse-glow {
-    position: fixed;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    pointer-events: none;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-    mix-blend-mode: screen;
-    z-index: 2;
-    transform: translate(-50%, -50%);
+  body {
+    background: transparent;
+    background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
 
   .content-container {
-    background-color: rgba(255, 255, 255, 0.88);
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 2rem;
     border-radius: 1rem;
     max-width: 900px;
     margin: 3rem auto;
-    position: relative;
-    z-index: 10;
   }
 
   a.project-card {
@@ -93,12 +54,8 @@ permalink: /projects/
     color: #666;
     margin-bottom: 0.5rem;
   }
-</style>
 
-<!-- 星空特效區 -->
-<div id="clock"></div>
-<div id="mouse-glow"></div>
-<audio id="bg-music" src="/music/your-music.mp3" autoplay loop></audio>
+</style>
 
 <div class="content-container">
   <h1>我的專案</h1>
@@ -115,56 +72,11 @@ permalink: /projects/
     <div class="tech-stack">技術：Python、Streamlit、Manim、LaTeX</div>
   </a>
 
+
   <a href="/projects/flutter_snake/" class="project-card">
     <div class="project-title">Flutter 貪食蛇遊戲</div>
     <div class="project-desc">手機滑動與桌機方向鍵控制皆支援，自適應畫面，具備完整碰撞與得分邏輯。</div>
     <div class="tech-stack">技術：Flutter、Dart、RWD 設計</div>
   </a>
+
 </div>
-
-<!-- 引入 THREE.js -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
-
-<!-- 星空背景 JS -->
-<script>
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.domElement.classList.add("webgl-bg");
-document.body.appendChild(renderer.domElement);
-
-const starsGeometry = new THREE.BufferGeometry();
-const starCount = 5000;
-const positions = [];
-
-for (let i = 0; i < starCount; i++) {
-  positions.push(
-    (Math.random() - 0.5) * 2000,
-    (Math.random() - 0.5) * 2000,
-    (Math.random() - 0.5) * 2000
-  );
-}
-
-starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-
-const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 1 });
-const starField = new THREE.Points(starsGeometry, starMaterial);
-scene.add(starField);
-
-camera.position.z = 500;
-
-function animate() {
-  requestAnimationFrame(animate);
-  starField.rotation.y += 0.0005;
-  renderer.render(scene, camera);
-}
-
-animate();
-
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
-</script>

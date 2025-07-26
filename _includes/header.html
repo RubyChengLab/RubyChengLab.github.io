@@ -18,9 +18,11 @@
     width: 100%;
   }
 }
-body {
-    background: transparent; /* 加這行 */
-    background-image: url('{{ "../images/bg.jpeg" | absolute_url }}') !important;
+  body {
+    background: transparent;
+    {% if page.permalink != "/projects/" %}
+      background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
+    {% endif %}
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
