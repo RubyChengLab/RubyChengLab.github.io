@@ -312,6 +312,17 @@ permalink: /projects/
       glow.style.top = `${e.clientY}px`;
     });
   </script>
+  <body>
+  </main>
+  <footer style="background-color: #f8f8f8; padding: 20px; text-align: center; font-size: 14px; color: #444;">
+    <p><strong>Falling Comet Lab</strong> ｜ Arduino x 數學教學</p>
+
+      <p>
+        <a href="https://github.com/RubyChengLab" target="_blank" style="margin: 0 10px; color: #444;">GitHub</a>
+        📩 聯絡我們：<a href="mailto:fallingcometlab@gmail.com" style="margin: 0 10px; color: #444;">fallingcometlab@gmail.com</a>
+      </p>
+    <p style="color: #aaa;">© 2025 Falling Comet Lab. All rights reserved.</p>
+  </footer>
 </body>
 </html>
 
