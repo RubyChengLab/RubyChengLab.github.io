@@ -13,18 +13,23 @@
   {% endif %}
 
   <style>
-    body {
-      background: transparent;
-      {% if page.permalink != "/projects/" %}
-        background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
-      {% endif %}
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
       font-family: "Noto Sans TC", sans-serif;
       line-height: 1.8;
-      margin: 0;
+      overflow-x: hidden;
+      height: 100%;
+    }
+
+    #space-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      display: block;
     }
 
     header {
@@ -92,12 +97,48 @@
     }
 
     .content-container {
-      background-color: rgba(255, 255, 255, 0.88);
-      padding: 2.5rem;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 2.5rem 1.5rem;
       border-radius: 1.25rem;
       max-width: 960px;
       margin: 160px auto 3rem auto;
       box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 10;
+    }
+
+    a.project-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    a.project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-desc {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 0.6rem;
+    }
+
+    .tech-stack {
+      font-size: 0.85rem;
+      color: #777;
     }
 
     @media (max-width: 768px) {
@@ -116,11 +157,18 @@
       .search-box {
         width: 100%;
       }
+
+      .project-title { font-size: 1.2rem; }
+      .project-desc { font-size: 0.95rem; }
+      .tech-stack { font-size: 0.8rem; }
     }
   </style>
 </head>
 
 <body>
+  <!-- 星空背景 -->
+  <canvas id="space-canvas"></canvas>
+
   <header>
     <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
       🌠 Falling Comet Lab
@@ -149,5 +197,8 @@
       {{ content }}
     </div>
   </main>
+
+  <!-- 星空動畫 JS -->
+  <script src="{{ '/assets/js/space.js' | relative_url }}"></script>
 </body>
 </html>
