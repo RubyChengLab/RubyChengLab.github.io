@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Falling Comet Lab | Arduino x 數學教學</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Falling Comet Lab" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Arduino x 數學教學" />
+<meta property="og:description" content="Arduino x 數學教學" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Falling Comet Lab" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Falling Comet Lab" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Arduino x 數學教學","headline":"Falling Comet Lab","name":"Falling Comet Lab","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Falling Comet Lab" /></head>
+<body><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<style>
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .search-box {
+    width: 100%;
+  }
+}
+body {
+    background: transparent; /* 加這行 */
+    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding-top: 60px; /* 增加空間給 header */
+    margin-top: 150px; /* 或可微調 */
+    max-width: 960px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2a2a2a;
+  }
+  section {
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 16px;
+  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  z-index: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+nav a {
+  color: #2a2a2a;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #4a90e2;
+}
+
+.search-box {
+  min-width: 260px;
+  width: 260px;
+}
+
+.search-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em 0.7em;
+  font-size: 0.95rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 1.8s;
+}
+
+.search-box input:focus {
+  border-color: #4a90e2;
+}
+
+#search-results {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding-left: 1.2em;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+}
+</style>
+
+<header>
+  <link rel="style" href="/assets/css/style.css" /> 
+  <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
+    🌠 Falling Comet Lab
+  </h1>
+
+  <div class="right-group" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+    <nav>
+      <ul>
+        <li><a href="/categories/Arduino/">Arduino</a></li>
+        <li><a href="/categories/Math/">Math</a></li>
+        <li><a href="/categories/Electronics/">Electronics</a></li>
+        <li><a href="/projects.html">專案</a></li>
+        <li><a href="/about/">關於我</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章">
+      <ul id="search-results"></ul>
+    </div>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <style>
+  body {
+    background: transparent; /* 加這行 */
+    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 140px auto 0 auto;
+    max-width: 960px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2a2a2a;
+  }
+  section {
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 16px;
+  }
+</style>
+<head>
+  <link rel="style" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/timeline.css" />
+  <link rel="icon" href="/images/szru1-rocxt-001.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="content-container">
+    <section>
+      <h2>📌 最新文章</h2>
+      <ul>
+        
+          
+        
+          
+            <li><a href="/electronics/circuits-series-parallel/">電阻串聯與並聯的基本概念</a> (2025-07-16)</li>
+          
+        
+          
+            <li><a href="/arduino/arduino-buzzer/">[Arduino教學] 蜂鳴器播放聲音</a> (2025-07-16)</li>
+          
+        
+          
+            <li><a href="/arduino/math/arduino-binary/">[Arduino入門] 用LED學會數學：認識二進位</a> (2025-07-16)</li>
+          
+        
+          
+            <li><a href="/math/calculus-limit/">[微積分入門] 什麼是極限？</a> (2024-07-16)</li>
+          
+        
+      </ul>
+    </section>
+    <section class="timeline">
+      
+        
+          <div class="timeline-entry">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025-07-25</div>
+              <div class="timeline-title"><a href="/first-log/">📱 Falling Comet Lab | 開發日誌 Day 1</a></div>
+              <div class="timeline-summary"><p>今天完成了網站底部時間軸的初步架構，<br />
+並學會如何區分「一般文章」與「時間軸文章」，使用 <code class="language-plaintext highlighter-rouge">tags: [timeline]</code> 來標示。</p>
+</div>
+            </div>
+          </div>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </section>
+    <section>
+      <h3>🏷️ Tags</h3>
+      
+      <a href="/tags/Math" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        Math
+      </a>
+      
+      <a href="/tags/Calculus" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        Calculus
+      </a>
+      
+      <a href="/tags/Arduino" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        Arduino
+      </a>
+      
+      <a href="/tags/Electronics" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        Electronics
+      </a>
+      
+      <a href="/tags/Circuits" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        Circuits
+      </a>
+      
+      <a href="/tags/timeline" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        timeline
+      </a>
+      
+      <a href="/tags/開發日誌" style="margin:8px; padding:6px 12px; background:#f7f7f7; border-radius:12px; display:inline-block; color:#333; text-decoration:none;">
+        開發日誌
+      </a>
+      
+    </section>
+    <!-- 👁️ 瀏覽次數塞在這裡 -->
+    <div id="view-counter" style="margin-top:24px; text-align:center; font-weight:bold;"></div>
+  </div>
+  <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+  <script type="module">
+  import * as THREE from 'https://cdn.skypack.dev/three';
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(
+    75, window.innerWidth / window.innerHeight, 0.1, 1000
+  );
+  camera.position.z = 5;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById("bg-canvas"),
+    alpha: true,
+    antialias: true
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  const starGeometry = new THREE.BufferGeometry();
+  const starCount = 1000;
+  const positions = [];
+
+  for (let i = 0; i < starCount; i++) {
+    positions.push((Math.random() - 0.5) * 200);
+    positions.push((Math.random() - 0.5) * 200);
+    positions.push((Math.random() - 0.5) * 200);
+  }
+  starGeometry.setAttribute(
+    'position',
+    new THREE.Float32BufferAttribute(positions, 3)
+  );
+
+  const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+  const starField = new THREE.Points(starGeometry, starMaterial);
+  scene.add(starField);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    starField.rotation.y += 0.0005;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+  </script>
+</body>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getFirestore, doc, updateDoc, increment, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyBmR7K4ECZA0Vv0PlHn6dMxg5P06UsBnq0",
+  authDomain: "falling-comet-lab-blog.firebaseapp.com",
+  databaseURL: "https://falling-comet-lab-blog-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "falling-comet-lab-blog",
+  storageBucket: "falling-comet-lab-blog.firebasestorage.app",
+  messagingSenderId: "275403715950",
+  appId: "1:275403715950:web:25383ec082d6ff3338bd7f",
+  measurementId: "G-TRDSPMNYQK"
+});
+
+const db = getFirestore(app);
+
+async function countView() {
+  const id = location.pathname.replace(/\//g, "_") || "index";
+  const ref = doc(db, "posts", id);
+  try {
+    await updateDoc(ref, { views: increment(1) });
+  } catch {
+    await setDoc(ref, { views: 1 });
+  }
+  const snap = await getDoc(ref);
+  if (snap.exists()) {
+    document.getElementById("view-counter").innerText =
+      `👁️ 瀏覽次數：${snap.data().views} 次`;
+  }
+}
+
+countView();
+</script>
+
+      </div>
+    </main><footer style="background-color: #f8f8f8; padding: 20px; text-align: center; font-size: 14px; color: #444;">
+  <p><strong>Falling Comet Lab</strong> ｜ Arduino x 數學教學</p>
+
+  <p>
+    <a href="https://github.com/RubyChengLab" target="_blank" style="margin: 0 10px; color: #444;">GitHub</a>
+    📩 聯絡我們：<a href="mailto:fallingcometlab@gmail.com" style="margin: 0 10px; color: #444;">fallingcometlab@gmail.com</a>
+  </p>
+  <p style="color: #aaa;">© 2025 Falling Comet Lab. All rights reserved.</p>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>📱 Falling Comet Lab 開發日誌 Day 1 | Falling Comet Lab</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="📱 Falling Comet Lab 開發日誌 Day 1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="今天完成了網站底部時間軸的初步架構， 並學會如何區分「一般文章」與「時間軸文章」，使用 tags: [timeline] 來標示。" />
+<meta property="og:description" content="今天完成了網站底部時間軸的初步架構， 並學會如何區分「一般文章」與「時間軸文章」，使用 tags: [timeline] 來標示。" />
+<link rel="canonical" href="http://localhost:4000/first-log/" />
+<meta property="og:url" content="http://localhost:4000/first-log/" />
+<meta property="og:site_name" content="Falling Comet Lab" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-25T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="📱 Falling Comet Lab 開發日誌 Day 1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-25T00:00:00+08:00","datePublished":"2025-07-25T00:00:00+08:00","description":"今天完成了網站底部時間軸的初步架構， 並學會如何區分「一般文章」與「時間軸文章」，使用 tags: [timeline] 來標示。","headline":"📱 Falling Comet Lab 開發日誌 Day 1","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/first-log/"},"url":"http://localhost:4000/first-log/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Falling Comet Lab" /></head>
+<body><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<style>
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .search-box {
+    width: 100%;
+  }
+}
+body {
+    background: transparent; /* 加這行 */
+    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding-top: 60px; /* 增加空間給 header */
+    margin-top: 150px; /* 或可微調 */
+    max-width: 960px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2a2a2a;
+  }
+  section {
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 16px;
+  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  z-index: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+nav a {
+  color: #2a2a2a;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #4a90e2;
+}
+
+.search-box {
+  min-width: 260px;
+  width: 260px;
+}
+
+.search-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em 0.7em;
+  font-size: 0.95rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 1.8s;
+}
+
+.search-box input:focus {
+  border-color: #4a90e2;
+}
+
+#search-results {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding-left: 1.2em;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+}
+</style>
+
+<header>
+  <link rel="style" href="/assets/css/style.css" /> 
+  <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
+    🌠 Falling Comet Lab
+  </h1>
+
+  <div class="right-group" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+    <nav>
+      <ul>
+        <li><a href="/categories/Arduino/">Arduino</a></li>
+        <li><a href="/categories/Math/">Math</a></li>
+        <li><a href="/categories/Electronics/">Electronics</a></li>
+        <li><a href="/projects.html">專案</a></li>
+        <li><a href="/about/">關於我</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章">
+      <ul id="search-results"></ul>
+    </div>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">📱 Falling Comet Lab | 開發日誌 Day 1</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-07-25T00:00:00+08:00" itemprop="datePublished">Jul 25, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>今天完成了網站底部時間軸的初步架構，<br />
+並學會如何區分「一般文章」與「時間軸文章」，使用 <code class="language-plaintext highlighter-rouge">tags: [timeline]</code> 來標示。</p>
+
+<p>也嘗試調整了一些 CSS 與 HTML，讓文章可以正確地在首頁底部顯示成時間線格式。</p>
+
+<p>這是我第一篇日誌 🎉<br />
+我會努力每天更新開發進度，慢慢把 Falling Comet Lab 建立起來！</p>
+
+  </div><a class="u-url" href="/first-log/" hidden></a>
+</article>
+
+      </div>
+    </main><footer style="background-color: #f8f8f8; padding: 20px; text-align: center; font-size: 14px; color: #444;">
+  <p><strong>Falling Comet Lab</strong> ｜ Arduino x 數學教學</p>
+
+  <p>
+    <a href="https://github.com/RubyChengLab" target="_blank" style="margin: 0 10px; color: #444;">GitHub</a>
+    📩 聯絡我們：<a href="mailto:fallingcometlab@gmail.com" style="margin: 0 10px; color: #444;">fallingcometlab@gmail.com</a>
+  </p>
+  <p style="color: #aaa;">© 2025 Falling Comet Lab. All rights reserved.</p>
+</footer>
+</body>
+
+</html>

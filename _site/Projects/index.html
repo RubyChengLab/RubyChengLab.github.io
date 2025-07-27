@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>我的專案 | Falling Comet Lab</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="我的專案" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Arduino x 數學教學" />
+<meta property="og:description" content="Arduino x 數學教學" />
+<link rel="canonical" href="http://localhost:4000/projects/" />
+<meta property="og:url" content="http://localhost:4000/projects/" />
+<meta property="og:site_name" content="Falling Comet Lab" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="我的專案" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Arduino x 數學教學","headline":"我的專案","url":"http://localhost:4000/projects/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Falling Comet Lab" /></head>
+<body><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<style>
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .search-box {
+    width: 100%;
+  }
+}
+body {
+    background: transparent; /* 加這行 */
+    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding-top: 60px; /* 增加空間給 header */
+    margin-top: 150px; /* 或可微調 */
+    max-width: 960px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2a2a2a;
+  }
+  section {
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 16px;
+  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  z-index: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+nav a {
+  color: #2a2a2a;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #4a90e2;
+}
+
+.search-box {
+  min-width: 260px;
+  width: 260px;
+}
+
+.search-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em 0.7em;
+  font-size: 0.95rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 1.8s;
+}
+
+.search-box input:focus {
+  border-color: #4a90e2;
+}
+
+#search-results {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding-left: 1.2em;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+}
+</style>
+
+<header>
+  <link rel="style" href="/assets/css/style.css" /> 
+  <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
+    🌠 Falling Comet Lab
+  </h1>
+
+  <div class="right-group" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+    <nav>
+      <ul>
+        <li><a href="/categories/Arduino/">Arduino</a></li>
+        <li><a href="/categories/Math/">Math</a></li>
+        <li><a href="/categories/Electronics/">Electronics</a></li>
+        <li><a href="/projects.html">專案</a></li>
+        <li><a href="/about/">關於我</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章">
+      <ul id="search-results"></ul>
+    </div>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <style>
+  body {
+    background: transparent;
+    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 900px;
+    margin: 3rem auto;
+  }
+
+  .project-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.2s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-desc {
+    margin-bottom: 0.75rem;
+    color: #444;
+  }
+
+  .tech-stack {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-links a {
+    margin-right: 1rem;
+    color: #007acc;
+    text-decoration: none;
+  }
+</style>
+
+<div class="content-container">
+  <h1>我的專案</h1>
+
+  <div class="project-card">
+    <div class="project-title">六法全書 Flutter App</div>
+    <div class="project-desc">支援離線查詢、書籤筆記、條文搜尋、歷史版本比較等功能的法規查詢工具。</div>
+    <div class="tech-stack">技術：Flutter、Dart、Firebase、Python 爬蟲</div>
+    <div class="project-links">
+      <a href="https://github.com/your-repo/six_codes_app" target="_blank">GitHub</a>
+      <a href="#" target="_blank">Demo 頁面</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">三電一工教學 App</div>
+    <div class="project-desc">以章節結構呈現電學與邏輯設計，支援練習題、自動驗算、簡圖動畫與進度追蹤。</div>
+    <div class="tech-stack">技術：Python、Streamlit、Manim、LaTeX</div>
+    <div class="project-links">
+      <a href="https://github.com/your-repo/ee_app" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">微積分動畫教學</div>
+    <div class="project-desc">高階導數、隱函數微分與參數曲線的可視化動畫，用於數學教學與演示。</div>
+    <div class="tech-stack">技術：Manim、Python、LaTeX</div>
+    <div class="project-links">
+      <a href="https://www.youtube.com/@fallingcometlab" target="_blank">YouTube</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">法規爬蟲資料擷取</div>
+    <div class="project-desc">完整擷取民法、刑法、民訴等法規內容，包含編章節與條文結構，自動儲存為 JSON。</div>
+    <div class="tech-stack">技術：Python、BeautifulSoup、正規表達式</div>
+    <div class="project-links">
+      <a href="https://github.com/your-repo/law-crawler" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">Flutter 貪食蛇遊戲</div>
+    <div class="project-desc">手機滑動與桌機方向鍵控制皆支援，自適應畫面，具備完整碰撞與得分邏輯。</div>
+    <div class="tech-stack">技術：Flutter、Dart、RWD 設計</div>
+    <div class="project-links">
+      <a href="https://github.com/your-repo/flutter_snake" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+</div>
+      </div>
+    </main><footer style="background-color: #f8f8f8; padding: 20px; text-align: center; font-size: 14px; color: #444;">
+  <p><strong>Falling Comet Lab</strong> ｜ Arduino x 數學教學</p>
+
+  <p>
+    <a href="https://github.com/RubyChengLab" target="_blank" style="margin: 0 10px; color: #444;">GitHub</a>
+    📩 聯絡我們：<a href="mailto:fallingcometlab@gmail.com" style="margin: 0 10px; color: #444;">fallingcometlab@gmail.com</a>
+  </p>
+  <p style="color: #aaa;">© 2025 Falling Comet Lab. All rights reserved.</p>
+</footer>
+</body>
+
+</html>

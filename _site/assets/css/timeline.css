@@ -1,0 +1,32 @@
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  border-left: 2px solid #ccc;
+}
+.timeline-entry {
+  position: relative;
+  margin-bottom: 30px;
+}
+.timeline-dot {
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: #00bcd4;
+  border-radius: 50%;
+}
+.timeline-content {
+  margin-left: 10px;
+}
+.timeline-date {
+  font-size: 0.9em;
+  color: #888;
+}
+.timeline-title a {
+  color: #333;
+  text-decoration: none;
+}
+.timeline-summary {
+  color: #555;
+}

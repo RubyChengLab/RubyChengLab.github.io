@@ -1,0 +1,159 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<style>
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .search-box {
+    width: 100%;
+  }
+}
+body {
+    background: transparent; /* 加這行 */
+    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding-top: 60px; /* 增加空間給 header */
+    margin-top: 150px; /* 或可微調 */
+    max-width: 960px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2a2a2a;
+  }
+  section {
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 16px;
+  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  z-index: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+nav a {
+  color: #2a2a2a;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #4a90e2;
+}
+
+.search-box {
+  min-width: 260px;
+  width: 260px;
+}
+
+.search-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em 0.7em;
+  font-size: 0.95rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 1.8s;
+}
+
+.search-box input:focus {
+  border-color: #4a90e2;
+}
+
+#search-results {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding-left: 1.2em;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+}
+</style>
+
+<header>
+  <link rel="style" href="/assets/css/style.css" /> 
+  <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
+    🌠 Falling Comet Lab
+  </h1>
+
+  <div class="right-group" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+    <nav>
+      <ul>
+        <li><a href="/categories/Arduino/">Arduino</a></li>
+        <li><a href="/categories/Math/">Math</a></li>
+        <li><a href="/categories/Electronics/">Electronics</a></li>
+        <li><a href="/projects.html">專案</a></li>
+        <li><a href="/about/">關於我</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章" />
+      <ul id="search-results"></ul>
+    </div>
+  </div>
+</header>
+
+<style>
+  h1 {
+    font-size: 36px; /* 大標題字體 */
+  }
+  ul {
+    font-size: 20px; /* 清單字體 */
+  }
+  ul li a {
+    font-size: 20px; /* 連結字體 */
+    text-decoration: none;
+  }
+  ul li a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<h1>分類：Electronics</h1>
+
+<ul>
+  
+    <li><a href="/electronics/circuits-series-parallel/">電阻串聯與並聯的基本概念</a></li>
+  
+</ul>
+
