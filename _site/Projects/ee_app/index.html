@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Falling Comet Lab | Arduino x 數學教學</title>
+<title>三電一工教學 App | 我的部落格</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Falling Comet Lab" />
+<meta property="og:title" content="三電一工教學 App" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Arduino x 數學教學" />
-<meta property="og:description" content="Arduino x 數學教學" />
-<link rel="canonical" href="http://localhost:4000/categories/category/" />
-<meta property="og:url" content="http://localhost:4000/categories/category/" />
-<meta property="og:site_name" content="Falling Comet Lab" />
+<meta name="description" content="歡迎來到我的世界！" />
+<meta property="og:description" content="歡迎來到我的世界！" />
+<link rel="canonical" href="http://localhost:4000/projects/ee_app/" />
+<meta property="og:url" content="http://localhost:4000/projects/ee_app/" />
+<meta property="og:site_name" content="我的部落格" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Falling Comet Lab" />
+<meta property="twitter:title" content="三電一工教學 App" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Arduino x 數學教學","headline":"Falling Comet Lab","url":"http://localhost:4000/categories/category/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"歡迎來到我的世界！","headline":"三電一工教學 App","url":"http://localhost:4000/projects/ee_app/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Falling Comet Lab" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="我的部落格" /></head>
 <body><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -39,9 +39,11 @@
     width: 100%;
   }
 }
-body {
-    background: transparent; /* 加這行 */
-    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+  body {
+    background: transparent;
+    
+      background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+    
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -141,7 +143,7 @@ nav a:hover {
         <li><a href="/categories/Arduino/">Arduino</a></li>
         <li><a href="/categories/Math/">Math</a></li>
         <li><a href="/categories/Electronics/">Electronics</a></li>
-        <li><a href="/projects.html">專案</a></li>
+        <li><a href="/projects/">專案</a></li>
         <li><a href="/about/">關於我</a></li>
       </ul>
     </nav>
@@ -154,146 +156,77 @@ nav a:hover {
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-<style>
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  nav ul {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-  }
-  .search-box {
-    width: 100%;
-  }
-}
-body {
-    background: transparent; /* 加這行 */
+        <style>
+  body {
+    background: transparent;
     background-image: url('http://localhost:4000/images/bg.jpeg') !important;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
+
   .content-container {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    padding-top: 60px; /* 增加空間給 header */
-    margin-top: 150px; /* 或可微調 */
     max-width: 960px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #2a2a2a;
+    margin: 3rem auto;
+    padding: 0 1rem;
   }
-  section {
-    border: 1px solid #eee;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    border-radius: 12px;
-    padding: 16px;
+
+  .inner-box {
+    background-color: rgba(255, 255, 255, 0.88);
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    line-height: 1.75;
   }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
-  border-bottom: 1px solid #ddd;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: #fff;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-  z-index: 100;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  flex-wrap: wrap;
-}
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-}
+  @media screen and (max-width: 600px) {
+    .inner-box {
+      padding: 1.5rem 1.25rem;
+    }
+  }
 
-nav a {
-  color: #2a2a2a;
-  text-decoration: none;
-}
+  h1, h2, h3 {
+    margin-top: 1.5rem;
+    color: #333;
+  }
 
-nav a:hover {
-  color: #4a90e2;
-}
+  ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
 
-.search-box {
-  min-width: 260px;
-  width: 260px;
-}
+  a {
+    color: #007acc;
+    text-decoration: none;
+  }
 
-.search-box input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.5em 0.7em;
-  font-size: 0.95rem;
-  border: 1.5px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 1.8s;
-}
-
-.search-box input:focus {
-  border-color: #4a90e2;
-}
-
-#search-results {
-  max-height: 200px;
-  overflow-y: auto;
-  margin-top: 8px;
-  margin-bottom: 0;
-  padding-left: 1.2em;
-  background: #fefefe;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  font-size: 0.9rem;
-}
+  a:hover {
+    text-decoration: underline;
+  }
 </style>
 
-<header>
-  <link rel="style" href="/assets/css/style.css" /> 
-  <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
-    🌠 Falling Comet Lab
-  </h1>
+<div class="content-container">
+  <div class="inner-box">
+    <h1>三電一工教學 App</h1>
 
-  <div class="right-group" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-    <nav>
-      <ul>
-        <li><a href="/categories/Arduino/">Arduino</a></li>
-        <li><a href="/categories/Math/">Math</a></li>
-        <li><a href="/categories/Electronics/">Electronics</a></li>
-        <li><a href="/projects.html">專案</a></li>
-        <li><a href="/about/">關於我</a></li>
-      </ul>
-    </nav>
+    <p>這個 App 以章節結構呈現電學與邏輯設計，搭配 <strong>練習題、自動驗算、簡圖動畫、進度追蹤</strong>，幫助學生深入理解三電一工。</p>
 
-    <div class="search-box">
-      <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章">
-      <ul id="search-results"></ul>
-    </div>
+    <h3>🔧 技術堆疊</h3>
+    <ul>
+      <li>Python + Streamlit：介面與互動邏輯</li>
+      <li>Manim：產生動畫</li>
+      <li>LaTeX：數學排版</li>
+    </ul>
+
+    <h3>🔗 相關連結</h3>
+    <ul>
+      <li><a href="https://go-big-or-go-home.streamlit.app/" target="_blank">Streamlit App</a></li>
+    </ul>
   </div>
-</header>
+</div>
 
-<h1>分類：</h1>
-
-<ul>
-  
-  
-</ul>
       </div>
     </main><footer style="background-color: #f8f8f8; padding: 20px; text-align: center; font-size: 14px; color: #444;">
   <p><strong>Falling Comet Lab</strong> ｜ Arduino x 數學教學</p>

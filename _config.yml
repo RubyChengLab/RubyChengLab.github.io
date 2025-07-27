@@ -1,0 +1,11 @@
+title: 我的部落格
+description: 歡迎來到我的世界！
+baseurl: "" # 若放在 GitHub Pages 子路徑需改成 "/repo-name"
+url: "https://rubychenglab.github.io/"
+
+theme: minima  # 或自訂
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

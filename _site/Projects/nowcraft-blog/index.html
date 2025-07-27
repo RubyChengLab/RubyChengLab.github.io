@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Falling Comet Lab | Arduino x 數學教學</title>
+<title>Nowcraft 部落格平台 | 我的部落格</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Falling Comet Lab" />
+<meta property="og:title" content="Nowcraft 部落格平台" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Arduino x 數學教學" />
-<meta property="og:description" content="Arduino x 數學教學" />
-<link rel="canonical" href="http://localhost:4000/layouts/tags/" />
-<meta property="og:url" content="http://localhost:4000/layouts/tags/" />
-<meta property="og:site_name" content="Falling Comet Lab" />
+<meta name="description" content="歡迎來到我的世界！" />
+<meta property="og:description" content="歡迎來到我的世界！" />
+<link rel="canonical" href="http://localhost:4000/projects/nowcraft-blog/" />
+<meta property="og:url" content="http://localhost:4000/projects/nowcraft-blog/" />
+<meta property="og:site_name" content="我的部落格" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Falling Comet Lab" />
+<meta property="twitter:title" content="Nowcraft 部落格平台" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Arduino x 數學教學","headline":"Falling Comet Lab","url":"http://localhost:4000/layouts/tags/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"歡迎來到我的世界！","headline":"Nowcraft 部落格平台","url":"http://localhost:4000/projects/nowcraft-blog/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Falling Comet Lab" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="我的部落格" /></head>
 <body><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -39,9 +39,11 @@
     width: 100%;
   }
 }
-body {
-    background: transparent; /* 加這行 */
-    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+  body {
+    background: transparent;
+    
+      background-image: url('http://localhost:4000/images/bg.jpeg') !important;
+    
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -141,7 +143,7 @@ nav a:hover {
         <li><a href="/categories/Arduino/">Arduino</a></li>
         <li><a href="/categories/Math/">Math</a></li>
         <li><a href="/categories/Electronics/">Electronics</a></li>
-        <li><a href="/projects.html">專案</a></li>
+        <li><a href="/projects/">專案</a></li>
         <li><a href="/about/">關於我</a></li>
       </ul>
     </nav>
@@ -156,32 +158,73 @@ nav a:hover {
       <div class="wrapper">
         <style>
   body {
+    background: transparent;
     background-image: url('http://localhost:4000/images/bg.jpeg') !important;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
+
   .content-container {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    padding: 40px;
-    margin: 140px auto 0 auto;
     max-width: 960px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #2a2a2a;
+    margin: 3rem auto;
+    padding: 0 1rem;
   }
-<!--
+
+  .inner-box {
+    background-color: rgba(255, 255, 255, 0.88);
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+
+  @media screen and (max-width: 600px) {
+    .inner-box {
+      padding: 1.5rem 1.25rem;
+    }
+  }
+
+  h1, h2, h3 {
+    margin-top: 1.5rem;
+    color: #333;
+  }
+
+  ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: #007acc;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 </style>
-<body>
-  <div class="content-container">
-    <h1>#</h1>
+
+<div class="content-container">
+  <div class="inner-box">
+    <h1>Nowcraft 部落格平台</h1>
+
+    <p>這是一個以 <strong>Jekyll</strong> 建置的實驗性部落格平台，支援 Firebase 登入註冊系統，並串接搜尋與個人化內容。</p>
+
+    <h3>🔧 功能特色</h3>
     <ul>
-      
+      <li>整合 Firebase Authentication 登入／註冊／忘記密碼</li>
+      <li>使用 Jekyll Liquid 模板語法建立多頁面</li>
+      <li>搜尋功能可過濾文章標題（JavaScript 實作）</li>
+      <li>支援 GitHub Pages 部署與版本控管</li>
     </ul>
+
+    <h3>🧪 技術堆疊</h3>
+    <p><strong>Jekyll、Firebase、HTML/CSS、JavaScript、Liquid</strong></p>
   </div>
-</body>
+</div>
 
       </div>
     </main><footer style="background-color: #f8f8f8; padding: 20px; text-align: center; font-size: 14px; color: #444;">

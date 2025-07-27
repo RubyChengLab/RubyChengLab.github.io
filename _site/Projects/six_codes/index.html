@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>所有標籤 | 我的部落格</title>
+<title>六法全書 Flutter App + 法規爬蟲 | 我的部落格</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="所有標籤" />
+<meta property="og:title" content="六法全書 Flutter App + 法規爬蟲" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="歡迎來到我的世界！" />
 <meta property="og:description" content="歡迎來到我的世界！" />
-<link rel="canonical" href="http://localhost:4000/tags/" />
-<meta property="og:url" content="http://localhost:4000/tags/" />
+<link rel="canonical" href="http://localhost:4000/projects/six_codes/" />
+<meta property="og:url" content="http://localhost:4000/projects/six_codes/" />
 <meta property="og:site_name" content="我的部落格" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="所有標籤" />
+<meta property="twitter:title" content="六法全書 Flutter App + 法規爬蟲" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"歡迎來到我的世界！","headline":"所有標籤","url":"http://localhost:4000/tags/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"歡迎來到我的世界！","headline":"六法全書 Flutter App + 法規爬蟲","url":"http://localhost:4000/projects/six_codes/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="我的部落格" /></head>
 <body><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -156,183 +156,86 @@ nav a:hover {
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-<style>
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  nav ul {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-  }
-  .search-box {
-    width: 100%;
-  }
-}
+        <style>
   body {
     background: transparent;
-    
-      background-image: url('http://localhost:4000/images/bg.jpeg') !important;
-    
+    background-image: url('http://localhost:4000/images/bg.jpeg') !important;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
+
   .content-container {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    padding-top: 60px; /* 增加空間給 header */
-    margin-top: 150px; /* 或可微調 */
     max-width: 960px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #2a2a2a;
+    margin: 3rem auto;
+    padding: 0 1rem;
   }
-  section {
-    border: 1px solid #eee;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    border-radius: 12px;
-    padding: 16px;
+
+  .inner-box {
+    background-color: rgba(255, 255, 255, 0.88);
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-size: 1.1rem;
+    line-height: 1.75;
   }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
-  border-bottom: 1px solid #ddd;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: #fff;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-  z-index: 100;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  flex-wrap: wrap;
-}
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-}
+  @media screen and (max-width: 600px) {
+    .inner-box {
+      padding: 1.5rem 1.25rem;
+    }
+  }
 
-nav a {
-  color: #2a2a2a;
-  text-decoration: none;
-}
+  h1, h2, h3 {
+    margin-top: 1.5rem;
+    color: #333;
+  }
 
-nav a:hover {
-  color: #4a90e2;
-}
+  ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
 
-.search-box {
-  min-width: 260px;
-  width: 260px;
-}
+  li {
+    margin-bottom: 0.5rem;
+  }
 
-.search-box input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.5em 0.7em;
-  font-size: 0.95rem;
-  border: 1.5px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 1.8s;
-}
+  a {
+    color: #007acc;
+    text-decoration: none;
+  }
 
-.search-box input:focus {
-  border-color: #4a90e2;
-}
-
-#search-results {
-  max-height: 200px;
-  overflow-y: auto;
-  margin-top: 8px;
-  margin-bottom: 0;
-  padding-left: 1.2em;
-  background: #fefefe;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  font-size: 0.9rem;
-}
+  a:hover {
+    text-decoration: underline;
+  }
 </style>
 
-<header>
-  <link rel="style" href="/assets/css/style.css" /> 
-  <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
-    🌠 Falling Comet Lab
-  </h1>
+<div class="content-container">
+  <div class="inner-box">
+    <h1>六法全書 Flutter App ＋ 法規爬蟲</h1>
 
-  <div class="right-group" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-    <nav>
-      <ul>
-        <li><a href="/categories/Arduino/">Arduino</a></li>
-        <li><a href="/categories/Math/">Math</a></li>
-        <li><a href="/categories/Electronics/">Electronics</a></li>
-        <li><a href="/projects/">專案</a></li>
-        <li><a href="/about/">關於我</a></li>
-      </ul>
-    </nav>
+    <p>
+      這是一個完整的法規查詢系統，由 <strong>法規爬蟲後端</strong> 與 <strong>Flutter App 前端</strong> 組成，
+      支援使用者離線查詢、書籤筆記、條文搜尋、歷史版本比較等功能。
+    </p>
 
-    <div class="search-box">
-      <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章" />
-      <ul id="search-results"></ul>
-    </div>
+    <h3>📌 功能亮點</h3>
+    <ul>
+      <li>六法全書內容完整收錄（民法、刑法、訴訟法...）</li>
+      <li>條文支援關鍵字搜尋與版本比對</li>
+      <li>可加書籤與筆記，並同步到 Firebase</li>
+      <li>App 支援離線使用、夜間模式、自動更新</li>
+    </ul>
+
+    <h3>🛠 技術堆疊</h3>
+    <ul>
+      <li><strong>前端</strong>：Flutter、Dart、Firebase</li>
+      <li><strong>後端</strong>：Python、BeautifulSoup、正規表達式</li>
+      <li><strong>格式</strong>：JSON 結構儲存所有編、章、節、條文</li>
+    </ul>
   </div>
-</header>
-
-<h1>所有標籤</h1>
-
-<ul>
-  
-    
-    <li>
-      <a href="/tags/Math/">Math</a> （文章數：2）
-    </li>
-  
-    
-    <li>
-      <a href="/tags/Calculus/">Calculus</a> （文章數：1）
-    </li>
-  
-    
-    <li>
-      <a href="/tags/Arduino/">Arduino</a> （文章數：2）
-    </li>
-  
-    
-    <li>
-      <a href="/tags/Electronics/">Electronics</a> （文章數：1）
-    </li>
-  
-    
-    <li>
-      <a href="/tags/Circuits/">Circuits</a> （文章數：1）
-    </li>
-  
-    
-    <li>
-      <a href="/tags/timeline/">timeline</a> （文章數：1）
-    </li>
-  
-    
-    <li>
-      <a href="/tags/開發日誌/">開發日誌</a> （文章數：1）
-    </li>
-  
-</ul>
+</div>
 
       </div>
     </main><footer style="background-color: #f8f8f8; padding: 20px; text-align: center; font-size: 14px; color: #444;">
