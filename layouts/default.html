@@ -1,77 +1,94 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>🌠 Falling Comet Lab</title>
+  <link rel="icon" href="{{ '/images/szru1-rocxt-001.ico' | relative_url }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   {% if page.mathjax %}
-    <style>
-      /* 背景設定 */
-      body {
-        background-image: url('https://rubychenglab.github.io/images/bg.jpeg'); /* 這裡換成你的圖片路徑 */
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-      }
-      .post {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      }
-      .content-container {
-        background-color: rgba(255, 255, 255, 0.85);
-        border-radius: 12px;
-        padding: 40px;
-        margin: 140px auto 0 auto;
-        max-width: 960px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #2a2a2a;
-      }
-
-      .post-title {
-        font-size: 2.2rem;
-        font-weight: bold;
-        margin-top: 0;
-        color: #2a2a2a;
-      }
-
-      .post-date, .post-tags {
-        color: #666;
-        font-size: 0.9em;
-      }
-
-      .post-content {
-        line-height: 1.7;
-        font-size: 1.05rem;
-        color: #2a2a2a;
-      }
-
-      a {
-        color: #0066cc;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   {% endif %}
-  <head>
-    <link rel="icon" href="{{ '/images/szru1-rocxt-001.ico' | relative_url }}" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <meta charset="UTF-8">
-    <title>🌠 Falling Comet Lab</title>
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <style>
+
+  <style>
     body {
       background: transparent;
-      background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
+      {% if page.permalink != "/projects/" %}
+        background-image: url('{{ "/images/bg.jpeg" | absolute_url }}') !important;
+      {% endif %}
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;
       background-repeat: no-repeat;
       font-family: "Noto Sans TC", sans-serif;
       line-height: 1.8;
+      margin: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid #ddd;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      z-index: 100;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+    }
+
+    nav a {
+      color: #2a2a2a;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #4a90e2;
+    }
+
+    .search-box {
+      min-width: 260px;
+      width: 260px;
+    }
+
+    .search-box input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.5em 0.7em;
+      font-size: 0.95rem;
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 1.8s;
+    }
+
+    .search-box input:focus {
+      border-color: #4a90e2;
+    }
+
+    #search-results {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 8px;
+      padding-left: 1.2em;
+      background: #fefefe;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      font-size: 0.9rem;
     }
 
     .content-container {
@@ -79,69 +96,58 @@
       padding: 2.5rem;
       border-radius: 1.25rem;
       max-width: 960px;
-      margin: 3rem auto;
+      margin: 160px auto 3rem auto;
       box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
-    .inner-box {
-      background: rgba(255, 255, 255, 0.5); /* 半透明白色 */
-      padding: 1.25rem;
-      border-radius: 0.75rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
 
-    h3 {
-      font-size: 1.25rem;
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
-      color: #333;
-    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
 
-    ul {
-      padding-left: 1.5rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
+      nav ul {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
 
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    a {
-      color: #007acc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      .search-box {
+        width: 100%;
+      }
     }
   </style>
-  </head>
-  
-    <body>
+</head>
 
-      <header>
-        <h1 class="title">🌠 Falling Comet Lab</h1>
-        <nav>
-          <ul>
-            <li><a href="{{ site.baseurl }}/categories/Arduino/">Arduino</a></li>
-            <li><a href="{{ site.baseurl }}/categories/Math/">Math</a></li>
-            <li><a href="{{ site.baseurl }}/categories/Electronics/">Electronics</a></li>
-            <li><a href="/projects/">專案</a></li>
-            <li><a href="/about/">關於我</a></li>
-          </ul>
+<body>
+  <header>
+    <h1 style="margin: 0; font-weight: 700; font-size: 1.8rem; color: #2a2a2a;">
+      🌠 Falling Comet Lab
+    </h1>
+
+    <div class="right-group" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+      <nav>
+        <ul>
+          <li><a href="{{ site.baseurl }}/categories/Arduino/">Arduino</a></li>
+          <li><a href="{{ site.baseurl }}/categories/Math/">Math</a></li>
+          <li><a href="{{ site.baseurl }}/categories/Electronics/">Electronics</a></li>
+          <li><a href="/projects/">專案</a></li>
+          <li><a href="/about/">關於我</a></li>
+        </ul>
       </nav>
-      </header>
 
-      <main>
-        <div class="content-container">
-          {{ content }}
-        </div>
-      </main>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="輸入關鍵字搜尋文章">
+        <ul id="search-results"></ul>
+      </div>
+    </div>
+  </header>
 
-    </body>
-  </html>
+  <main>
+    <div class="content-container">
+      {{ content }}
+    </div>
+  </main>
+</body>
+</html>
